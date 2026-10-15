@@ -1,0 +1,4 @@
+/var/minis/workspace/fenzu_deb/root/var/jb/Library/MobileSubstrate/DynamicLibraries/fenzu.dylib:
+Contents of (__DATA_CONST,__objc_intobj) section
+0000000000036310	0000004a 80100000 0002ce16 00000000 
+0000000000036320	00000000 00000000 

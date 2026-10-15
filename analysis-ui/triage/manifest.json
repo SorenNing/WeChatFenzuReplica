@@ -1,0 +1,80 @@
+{
+  "scope": "metadata-only; not a safety, signature, or runtime verdict",
+  "environment": {
+    "platform": "Linux-4.20.69-ish-aarch64-with",
+    "python": "3.12.14",
+    "tools": {
+      "file": "/usr/bin/file",
+      "r2": "/usr/bin/r2",
+      "llvm-objdump": "/usr/bin/llvm-objdump",
+      "llvm-readobj": "/usr/bin/llvm-readobj",
+      "objdump": "/usr/bin/objdump",
+      "ar": "/usr/bin/ar",
+      "tar": "/usr/bin/tar",
+      "dpkg-deb": "/usr/bin/dpkg-deb",
+      "strings": "/usr/bin/strings",
+      "unzip": "/usr/bin/unzip",
+      "xz": "/usr/bin/xz",
+      "zstd": "/usr/bin/zstd",
+      "curl": "/usr/bin/curl",
+      "git": "/usr/bin/git",
+      "ssh": null,
+      "frida": null,
+      "frida-ps": null,
+      "objection": null,
+      "adb": null,
+      "lldb": null,
+      "gdb": null,
+      "ghidraRun": null
+    }
+  },
+  "sample": {
+    "path": "/var/minis/workspace/fenzu_deb/root/var/jb/Library/MobileSubstrate/DynamicLibraries/fenzu.dylib",
+    "bytes": 261008,
+    "sha256": "0b911e940ef8f69cc6843b8ae3264d103df0d6dd3101fb349512b5c668de7b16",
+    "magic_hex": "cffaedfe0c000001",
+    "kind": "mach-o-candidate"
+  },
+  "commands": [
+    {
+      "argv": [
+        "file",
+        "-b",
+        "/var/minis/workspace/fenzu_deb/root/var/jb/Library/MobileSubstrate/DynamicLibraries/fenzu.dylib"
+      ],
+      "status": "ok",
+      "returncode": 0,
+      "executable": "/usr/bin/file",
+      "stdout": "file.stdout.txt",
+      "stderr": "file.stderr.txt"
+    },
+    {
+      "argv": [
+        "llvm-objdump",
+        "--macho",
+        "--private-headers",
+        "/var/minis/workspace/fenzu_deb/root/var/jb/Library/MobileSubstrate/DynamicLibraries/fenzu.dylib"
+      ],
+      "status": "ok",
+      "returncode": 0,
+      "executable": "/usr/bin/llvm-objdump",
+      "stdout": "macho-headers.stdout.txt",
+      "stderr": "macho-headers.stderr.txt"
+    },
+    {
+      "argv": [
+        "llvm-objdump",
+        "--macho",
+        "--dylibs-used",
+        "/var/minis/workspace/fenzu_deb/root/var/jb/Library/MobileSubstrate/DynamicLibraries/fenzu.dylib"
+      ],
+      "status": "ok",
+      "returncode": 0,
+      "executable": "/usr/bin/llvm-objdump",
+      "stdout": "macho-libraries.stdout.txt",
+      "stderr": "macho-libraries.stderr.txt"
+    }
+  ],
+  "sample_unchanged": true,
+  "status": "metadata-collected"
+}

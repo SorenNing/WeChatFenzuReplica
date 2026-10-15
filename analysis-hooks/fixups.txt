@@ -1,0 +1,559 @@
+/var/minis/workspace/fenzu_deb/root/var/jb/Library/MobileSubstrate/DynamicLibraries/fenzu.dylib:
+chained fixups header (LC_DYLD_CHAINED_FIXUPS)
+  fixups_version = 0
+  starts_offset  = 32
+  imports_offset = 104
+  symbols_offset = 632
+  imports_count  = 132
+  imports_format = 1 (DYLD_CHAINED_IMPORT)
+  symbols_format = 0
+chained starts in image
+  seg_count = 4
+    seg_offset[0] = 0 (__TEXT)
+    seg_offset[1] = 24 (__DATA_CONST)
+    seg_offset[2] = 48 (__DATA)
+    seg_offset[3] = 0 (__LINKEDIT)
+chained starts in segment 1 (__DATA_CONST)
+  size = 24
+  page_size = 0x4000
+  pointer_format = 6 (DYLD_CHAINED_PTR_64_OFFSET)
+  segment_offset = 0x34000
+  max_valid_pointer = 0
+  page_count = 1
+    page_start[0] = 0
+chained starts in segment 2 (__DATA)
+  size = 24
+  page_size = 0x4000
+  pointer_format = 6 (DYLD_CHAINED_PTR_64_OFFSET)
+  segment_offset = 0x38000
+  max_valid_pointer = 0
+  page_count = 1
+    page_start[0] = 8
+dyld chained import[0]
+  lib_ordinal = 1 (libobjc)
+  weak_import = 0
+  name_offset = 1 (___objc_personality_v0)
+dyld chained import[1]
+  lib_ordinal = 1 (libobjc)
+  weak_import = 0
+  name_offset = 24 (_class_addMethod)
+dyld chained import[2]
+  lib_ordinal = 1 (libobjc)
+  weak_import = 0
+  name_offset = 41 (_objc_alloc)
+dyld chained import[3]
+  lib_ordinal = 1 (libobjc)
+  weak_import = 0
+  name_offset = 53 (_objc_alloc_init)
+dyld chained import[4]
+  lib_ordinal = 1 (libobjc)
+  weak_import = 0
+  name_offset = 70 (_objc_autoreleasePoolPop)
+dyld chained import[5]
+  lib_ordinal = 1 (libobjc)
+  weak_import = 0
+  name_offset = 95 (_objc_autoreleasePoolPush)
+dyld chained import[6]
+  lib_ordinal = 1 (libobjc)
+  weak_import = 0
+  name_offset = 121 (_objc_autoreleaseReturnValue)
+dyld chained import[7]
+  lib_ordinal = 1 (libobjc)
+  weak_import = 0
+  name_offset = 150 (_objc_begin_catch)
+dyld chained import[8]
+  lib_ordinal = 1 (libobjc)
+  weak_import = 0
+  name_offset = 168 (_objc_copyWeak)
+dyld chained import[9]
+  lib_ordinal = 1 (libobjc)
+  weak_import = 0
+  name_offset = 183 (_objc_destroyWeak)
+dyld chained import[10]
+  lib_ordinal = 1 (libobjc)
+  weak_import = 0
+  name_offset = 201 (_objc_end_catch)
+dyld chained import[11]
+  lib_ordinal = 1 (libobjc)
+  weak_import = 0
+  name_offset = 217 (_objc_enumerationMutation)
+dyld chained import[12]
+  lib_ordinal = 1 (libobjc)
+  weak_import = 0
+  name_offset = 243 (_objc_getAssociatedObject)
+dyld chained import[13]
+  lib_ordinal = 1 (libobjc)
+  weak_import = 0
+  name_offset = 269 (_objc_getClass)
+dyld chained import[14]
+  lib_ordinal = 1 (libobjc)
+  weak_import = 0
+  name_offset = 284 (_objc_initWeak)
+dyld chained import[15]
+  lib_ordinal = 1 (libobjc)
+  weak_import = 0
+  name_offset = 299 (_objc_loadWeakRetained)
+dyld chained import[16]
+  lib_ordinal = 1 (libobjc)
+  weak_import = 0
+  name_offset = 322 (_objc_msgSend)
+dyld chained import[17]
+  lib_ordinal = 1 (libobjc)
+  weak_import = 0
+  name_offset = 336 (_objc_msgSendSuper2)
+dyld chained import[18]
+  lib_ordinal = 1 (libobjc)
+  weak_import = 0
+  name_offset = 356 (_objc_opt_class)
+dyld chained import[19]
+  lib_ordinal = 1 (libobjc)
+  weak_import = 0
+  name_offset = 372 (_objc_opt_isKindOfClass)
+dyld chained import[20]
+  lib_ordinal = 1 (libobjc)
+  weak_import = 0
+  name_offset = 396 (_objc_opt_respondsToSelector)
+dyld chained import[21]
+  lib_ordinal = 1 (libobjc)
+  weak_import = 0
+  name_offset = 425 (_objc_release)
+dyld chained import[22]
+  lib_ordinal = 1 (libobjc)
+  weak_import = 0
+  name_offset = 439 (_objc_retain)
+dyld chained import[23]
+  lib_ordinal = 1 (libobjc)
+  weak_import = 0
+  name_offset = 452 (_objc_retainAutorelease)
+dyld chained import[24]
+  lib_ordinal = 1 (libobjc)
+  weak_import = 0
+  name_offset = 476 (_objc_retainAutoreleaseReturnValue)
+dyld chained import[25]
+  lib_ordinal = 1 (libobjc)
+  weak_import = 0
+  name_offset = 511 (_objc_retainAutoreleasedReturnValue)
+dyld chained import[26]
+  lib_ordinal = 1 (libobjc)
+  weak_import = 0
+  name_offset = 547 (_objc_setAssociatedObject)
+dyld chained import[27]
+  lib_ordinal = 1 (libobjc)
+  weak_import = 0
+  name_offset = 573 (_objc_setProperty_nonatomic_copy)
+dyld chained import[28]
+  lib_ordinal = 1 (libobjc)
+  weak_import = 0
+  name_offset = 606 (_objc_storeStrong)
+dyld chained import[29]
+  lib_ordinal = 1 (libobjc)
+  weak_import = 0
+  name_offset = 624 (_objc_storeWeak)
+dyld chained import[30]
+  lib_ordinal = 1 (libobjc)
+  weak_import = 0
+  name_offset = 640 (_objc_unsafeClaimAutoreleasedReturnValue)
+dyld chained import[31]
+  lib_ordinal = 2 (Foundation)
+  weak_import = 0
+  name_offset = 681 (_NSClassFromString)
+dyld chained import[32]
+  lib_ordinal = 2 (Foundation)
+  weak_import = 0
+  name_offset = 700 (_NSHomeDirectory)
+dyld chained import[33]
+  lib_ordinal = 2 (Foundation)
+  weak_import = 0
+  name_offset = 717 (_NSStringFromClass)
+dyld chained import[34]
+  lib_ordinal = 3 (CoreFoundation)
+  weak_import = 0
+  name_offset = 736 (_OBJC_EHTYPE_$_NSException)
+dyld chained import[35]
+  lib_ordinal = 3 (CoreFoundation)
+  weak_import = 0
+  name_offset = 763 (___NSArray0__struct)
+dyld chained import[36]
+  lib_ordinal = 3 (CoreFoundation)
+  weak_import = 0
+  name_offset = 783 (___NSDictionary0__struct)
+dyld chained import[37]
+  lib_ordinal = 3 (CoreFoundation)
+  weak_import = 0
+  name_offset = 808 (___kCFBooleanFalse)
+dyld chained import[38]
+  lib_ordinal = 3 (CoreFoundation)
+  weak_import = 0
+  name_offset = 827 (___kCFBooleanTrue)
+dyld chained import[39]
+  lib_ordinal = 5 (libSystem)
+  weak_import = 0
+  name_offset = 845 (_CC_SHA256)
+dyld chained import[40]
+  lib_ordinal = 5 (libSystem)
+  weak_import = 0
+  name_offset = 856 (__Block_object_assign)
+dyld chained import[41]
+  lib_ordinal = 5 (libSystem)
+  weak_import = 0
+  name_offset = 878 (__Block_object_dispose)
+dyld chained import[42]
+  lib_ordinal = 5 (libSystem)
+  weak_import = 0
+  name_offset = 901 (__NSConcreteStackBlock)
+dyld chained import[43]
+  lib_ordinal = 5 (libSystem)
+  weak_import = 0
+  name_offset = 924 (__Unwind_Resume)
+dyld chained import[44]
+  lib_ordinal = 5 (libSystem)
+  weak_import = 0
+  name_offset = 940 (___stack_chk_fail)
+dyld chained import[45]
+  lib_ordinal = 5 (libSystem)
+  weak_import = 0
+  name_offset = 958 (___stack_chk_guard)
+dyld chained import[46]
+  lib_ordinal = 5 (libSystem)
+  weak_import = 0
+  name_offset = 977 (__dispatch_main_q)
+dyld chained import[47]
+  lib_ordinal = 5 (libSystem)
+  weak_import = 0
+  name_offset = 995 (_dispatch_after)
+dyld chained import[48]
+  lib_ordinal = 5 (libSystem)
+  weak_import = 0
+  name_offset = 1011 (_dispatch_async)
+dyld chained import[49]
+  lib_ordinal = 5 (libSystem)
+  weak_import = 0
+  name_offset = 1027 (_dispatch_get_global_queue)
+dyld chained import[50]
+  lib_ordinal = 5 (libSystem)
+  weak_import = 0
+  name_offset = 1054 (_dispatch_once)
+dyld chained import[51]
+  lib_ordinal = 5 (libSystem)
+  weak_import = 0
+  name_offset = 1069 (_dispatch_time)
+dyld chained import[52]
+  lib_ordinal = 5 (libSystem)
+  weak_import = 0
+  name_offset = 1084 (_strlen)
+dyld chained import[53]
+  lib_ordinal = 6 (CoreGraphics)
+  weak_import = 0
+  name_offset = 1092 (_CGAffineTransformIdentity)
+dyld chained import[54]
+  lib_ordinal = 6 (CoreGraphics)
+  weak_import = 0
+  name_offset = 1119 (_CGAffineTransformMakeScale)
+dyld chained import[55]
+  lib_ordinal = 7 (QuartzCore)
+  weak_import = 0
+  name_offset = 1147 (_kCACornerCurveContinuous)
+dyld chained import[56]
+  lib_ordinal = 8 (UIKit)
+  weak_import = 0
+  name_offset = 1173 (_NSFontAttributeName)
+dyld chained import[57]
+  lib_ordinal = 8 (UIKit)
+  weak_import = 0
+  name_offset = 1194 (_UIFontWeightBold)
+dyld chained import[58]
+  lib_ordinal = 8 (UIKit)
+  weak_import = 0
+  name_offset = 1212 (_UIFontWeightLight)
+dyld chained import[59]
+  lib_ordinal = 8 (UIKit)
+  weak_import = 0
+  name_offset = 1231 (_UIFontWeightMedium)
+dyld chained import[60]
+  lib_ordinal = 8 (UIKit)
+  weak_import = 0
+  name_offset = 1251 (_UIGraphicsBeginImageContextWithOptions)
+dyld chained import[61]
+  lib_ordinal = 8 (UIKit)
+  weak_import = 0
+  name_offset = 1291 (_UIGraphicsEndImageContext)
+dyld chained import[62]
+  lib_ordinal = 8 (UIKit)
+  weak_import = 0
+  name_offset = 1318 (_UIGraphicsGetImageFromCurrentImageContext)
+dyld chained import[63]
+  lib_ordinal = 8 (UIKit)
+  weak_import = 0
+  name_offset = 1361 (_UITextFieldTextDidBeginEditingNotification)
+dyld chained import[64]
+  lib_ordinal = 8 (UIKit)
+  weak_import = 0
+  name_offset = 1405 (_UITextFieldTextDidChangeNotification)
+dyld chained import[65]
+  lib_ordinal = 8 (UIKit)
+  weak_import = 0
+  name_offset = 1443 (_UITextFieldTextDidEndEditingNotification)
+dyld chained import[66]
+  lib_ordinal = 8 (UIKit)
+  weak_import = 0
+  name_offset = 1485 (_UITextViewTextDidBeginEditingNotification)
+dyld chained import[67]
+  lib_ordinal = 8 (UIKit)
+  weak_import = 0
+  name_offset = 1528 (_UITextViewTextDidChangeNotification)
+dyld chained import[68]
+  lib_ordinal = 8 (UIKit)
+  weak_import = 0
+  name_offset = 1565 (_UITextViewTextDidEndEditingNotification)
+dyld chained import[69]
+  lib_ordinal = 9 (CydiaSubstrate)
+  weak_import = 0
+  name_offset = 1606 (_MSHookMessageEx)
+dyld chained import[70]
+  lib_ordinal = 5 (libSystem)
+  weak_import = 0
+  name_offset = 1623 (__NSConcreteGlobalBlock)
+dyld chained import[71]
+  lib_ordinal = 3 (CoreFoundation)
+  weak_import = 0
+  name_offset = 1647 (___CFConstantStringClassReference)
+dyld chained import[72]
+  lib_ordinal = 3 (CoreFoundation)
+  weak_import = 0
+  name_offset = 1681 (_OBJC_CLASS_$_NSConstantDictionary)
+dyld chained import[73]
+  lib_ordinal = 3 (CoreFoundation)
+  weak_import = 0
+  name_offset = 1716 (_OBJC_CLASS_$_NSConstantArray)
+dyld chained import[74]
+  lib_ordinal = 2 (Foundation)
+  weak_import = 0
+  name_offset = 1746 (_OBJC_CLASS_$_NSConstantIntegerNumber)
+dyld chained import[75]
+  lib_ordinal = 8 (UIKit)
+  weak_import = 0
+  name_offset = 1784 (_OBJC_CLASS_$_UIViewController)
+dyld chained import[76]
+  lib_ordinal = 8 (UIKit)
+  weak_import = 0
+  name_offset = 1815 (_OBJC_CLASS_$_UIColorPickerViewController)
+dyld chained import[77]
+  lib_ordinal = 8 (UIKit)
+  weak_import = 0
+  name_offset = 1857 (_OBJC_CLASS_$_UIAlertController)
+dyld chained import[78]
+  lib_ordinal = 8 (UIKit)
+  weak_import = 0
+  name_offset = 1889 (_OBJC_CLASS_$_UIAlertAction)
+dyld chained import[79]
+  lib_ordinal = 8 (UIKit)
+  weak_import = 0
+  name_offset = 1917 (_OBJC_CLASS_$_UIApplication)
+dyld chained import[80]
+  lib_ordinal = 3 (CoreFoundation)
+  weak_import = 0
+  name_offset = 1945 (_OBJC_CLASS_$_NSUserDefaults)
+dyld chained import[81]
+  lib_ordinal = 3 (CoreFoundation)
+  weak_import = 0
+  name_offset = 1974 (_OBJC_CLASS_$_NSMutableArray)
+dyld chained import[82]
+  lib_ordinal = 2 (Foundation)
+  weak_import = 0
+  name_offset = 2003 (_OBJC_CLASS_$_NSNumber)
+dyld chained import[83]
+  lib_ordinal = 3 (CoreFoundation)
+  weak_import = 0
+  name_offset = 2026 (_OBJC_CLASS_$_NSArray)
+dyld chained import[84]
+  lib_ordinal = 3 (CoreFoundation)
+  weak_import = 0
+  name_offset = 2048 (_OBJC_CLASS_$_NSMutableDictionary)
+dyld chained import[85]
+  lib_ordinal = 3 (CoreFoundation)
+  weak_import = 0
+  name_offset = 2082 (_OBJC_CLASS_$_NSMutableSet)
+dyld chained import[86]
+  lib_ordinal = 8 (UIKit)
+  weak_import = 0
+  name_offset = 2109 (_OBJC_CLASS_$_UIColor)
+dyld chained import[87]
+  lib_ordinal = 8 (UIKit)
+  weak_import = 0
+  name_offset = 2131 (_OBJC_CLASS_$_UIBarButtonItem)
+dyld chained import[88]
+  lib_ordinal = 8 (UIKit)
+  weak_import = 0
+  name_offset = 2161 (_OBJC_CLASS_$_UIView)
+dyld chained import[89]
+  lib_ordinal = 8 (UIKit)
+  weak_import = 0
+  name_offset = 2182 (_OBJC_CLASS_$_UISegmentedControl)
+dyld chained import[90]
+  lib_ordinal = 8 (UIKit)
+  weak_import = 0
+  name_offset = 2215 (_OBJC_CLASS_$_UITextField)
+dyld chained import[91]
+  lib_ordinal = 8 (UIKit)
+  weak_import = 0
+  name_offset = 2241 (_OBJC_CLASS_$_UIFont)
+dyld chained import[92]
+  lib_ordinal = 8 (UIKit)
+  weak_import = 0
+  name_offset = 2262 (_OBJC_CLASS_$_UITableView)
+dyld chained import[93]
+  lib_ordinal = 2 (Foundation)
+  weak_import = 0
+  name_offset = 2288 (_OBJC_CLASS_$_NSPredicate)
+dyld chained import[94]
+  lib_ordinal = 8 (UIKit)
+  weak_import = 0
+  name_offset = 2314 (_OBJC_CLASS_$_UITableViewCell)
+dyld chained import[95]
+  lib_ordinal = 2 (Foundation)
+  weak_import = 0
+  name_offset = 2344 (_OBJC_CLASS_$_NSNotificationCenter)
+dyld chained import[96]
+  lib_ordinal = 2 (Foundation)
+  weak_import = 0
+  name_offset = 2379 (_OBJC_CLASS_$_NSFileManager)
+dyld chained import[97]
+  lib_ordinal = 8 (UIKit)
+  weak_import = 0
+  name_offset = 2407 (_OBJC_CLASS_$_UIImage)
+dyld chained import[98]
+  lib_ordinal = 8 (UIKit)
+  weak_import = 0
+  name_offset = 2429 (_OBJC_CLASS_$_UIScreen)
+dyld chained import[99]
+  lib_ordinal = 8 (UIKit)
+  weak_import = 0
+  name_offset = 2452 (_OBJC_CLASS_$_UILabel)
+dyld chained import[100]
+  lib_ordinal = 8 (UIKit)
+  weak_import = 0
+  name_offset = 2474 (_OBJC_CLASS_$_UIImageView)
+dyld chained import[101]
+  lib_ordinal = 2 (Foundation)
+  weak_import = 0
+  name_offset = 2500 (_OBJC_CLASS_$_NSString)
+dyld chained import[102]
+  lib_ordinal = 8 (UIKit)
+  weak_import = 0
+  name_offset = 2523 (_OBJC_CLASS_$_UIContextualAction)
+dyld chained import[103]
+  lib_ordinal = 8 (UIKit)
+  weak_import = 0
+  name_offset = 2556 (_OBJC_CLASS_$_UINavigationController)
+dyld chained import[104]
+  lib_ordinal = 8 (UIKit)
+  weak_import = 0
+  name_offset = 2593 (_OBJC_CLASS_$_UISwipeActionsConfiguration)
+dyld chained import[105]
+  lib_ordinal = 8 (UIKit)
+  weak_import = 0
+  name_offset = 2635 (_OBJC_CLASS_$_UISwipeGestureRecognizer)
+dyld chained import[106]
+  lib_ordinal = 8 (UIKit)
+  weak_import = 0
+  name_offset = 2674 (_OBJC_CLASS_$_UIScreenEdgePanGestureRecognizer)
+dyld chained import[107]
+  lib_ordinal = 8 (UIKit)
+  weak_import = 0
+  name_offset = 2721 (_OBJC_CLASS_$_UIBlurEffect)
+dyld chained import[108]
+  lib_ordinal = 8 (UIKit)
+  weak_import = 0
+  name_offset = 2748 (_OBJC_CLASS_$_UIVisualEffectView)
+dyld chained import[109]
+  lib_ordinal = 8 (UIKit)
+  weak_import = 0
+  name_offset = 2781 (_OBJC_CLASS_$_UIButton)
+dyld chained import[110]
+  lib_ordinal = 8 (UIKit)
+  weak_import = 0
+  name_offset = 2804 (_OBJC_CLASS_$_UIPanGestureRecognizer)
+dyld chained import[111]
+  lib_ordinal = 8 (UIKit)
+  weak_import = 0
+  name_offset = 2841 (_OBJC_CLASS_$_UILongPressGestureRecognizer)
+dyld chained import[112]
+  lib_ordinal = 3 (CoreFoundation)
+  weak_import = 0
+  name_offset = 2884 (_OBJC_CLASS_$_NSTimer)
+dyld chained import[113]
+  lib_ordinal = 3 (CoreFoundation)
+  weak_import = 0
+  name_offset = 2906 (_OBJC_CLASS_$_NSDictionary)
+dyld chained import[114]
+  lib_ordinal = 8 (UIKit)
+  weak_import = 0
+  name_offset = 2933 (_OBJC_CLASS_$_UIScrollView)
+dyld chained import[115]
+  lib_ordinal = 8 (UIKit)
+  weak_import = 0
+  name_offset = 2960 (_OBJC_CLASS_$_UISwitch)
+dyld chained import[116]
+  lib_ordinal = 2 (Foundation)
+  weak_import = 0
+  name_offset = 2983 (_OBJC_CLASS_$_NSUUID)
+dyld chained import[117]
+  lib_ordinal = 2 (Foundation)
+  weak_import = 0
+  name_offset = 3004 (_OBJC_CLASS_$_NSOperationQueue)
+dyld chained import[118]
+  lib_ordinal = 8 (UIKit)
+  weak_import = 0
+  name_offset = 3035 (_OBJC_CLASS_$_UITabBarController)
+dyld chained import[119]
+  lib_ordinal = 2 (Foundation)
+  weak_import = 0
+  name_offset = 3068 (_OBJC_CLASS_$_NSKeyedUnarchiver)
+dyld chained import[120]
+  lib_ordinal = 2 (Foundation)
+  weak_import = 0
+  name_offset = 3100 (_OBJC_CLASS_$_NSKeyedArchiver)
+dyld chained import[121]
+  lib_ordinal = 2 (Foundation)
+  weak_import = 0
+  name_offset = 3130 (_OBJC_CLASS_$_NSIndexPath)
+dyld chained import[122]
+  lib_ordinal = 2 (Foundation)
+  weak_import = 0
+  name_offset = 3156 (_OBJC_CLASS_$_NSCharacterSet)
+dyld chained import[123]
+  lib_ordinal = 2 (Foundation)
+  weak_import = 0
+  name_offset = 3185 (_OBJC_CLASS_$_NSMutableString)
+dyld chained import[124]
+  lib_ordinal = 8 (UIKit)
+  weak_import = 0
+  name_offset = 3215 (_OBJC_CLASS_$_UIImpactFeedbackGenerator)
+dyld chained import[125]
+  lib_ordinal = 8 (UIKit)
+  weak_import = 0
+  name_offset = 3255 (_OBJC_CLASS_$_UITextView)
+dyld chained import[126]
+  lib_ordinal = 8 (UIKit)
+  weak_import = 0
+  name_offset = 3280 (_OBJC_CLASS_$_UISearchBar)
+dyld chained import[127]
+  lib_ordinal = 8 (UIKit)
+  weak_import = 0
+  name_offset = 3306 (_OBJC_CLASS_$_UIStackView)
+dyld chained import[128]
+  lib_ordinal = 1 (libobjc)
+  weak_import = 0
+  name_offset = 3332 (__objc_empty_cache)
+dyld chained import[129]
+  lib_ordinal = 1 (libobjc)
+  weak_import = 0
+  name_offset = 3351 (_OBJC_CLASS_$_NSObject)
+dyld chained import[130]
+  lib_ordinal = 1 (libobjc)
+  weak_import = 0
+  name_offset = 3374 (_OBJC_METACLASS_$_NSObject)
+dyld chained import[131]
+  lib_ordinal = 8 (UIKit)
+  weak_import = 0
+  name_offset = 3401 (_OBJC_METACLASS_$_UIViewController)

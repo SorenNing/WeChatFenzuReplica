@@ -1,0 +1,789 @@
+arch     arm
+baddr    0x0
+binsz    261008
+bintype  mach0
+bits     64
+canary   true
+injprot  false
+class    MACH064
+compiler clang
+crypto   false
+endian   little
+havecode true
+laddr    0x0
+lang     objc with blocks
+linenum  false
+lsyms    false
+machine  all
+nx       false
+os       ios
+pic      false
+relocs   false
+sanitize false
+static   false
+stripped true
+subsys   darwin
+va       true
+[Sections]
+
+nth paddr          size vaddr         vsize perm type              name
+-----------------------------------------------------------------------
+0   0x00004000  0x1f12c 0x00004000  0x1f12c -r-x REGULAR           0.__TEXT.__text
+1   0x0002312c    0x24c 0x0002312c    0x24c -r-x SYMBOL_STUBS      1.__TEXT.__stubs
+2   0x00023380   0x2de0 0x00023380   0x2de0 -r-x REGULAR           2.__TEXT.__objc_stubs
+3   0x00026160      0x8 0x00026160      0x8 -r-x INIT_FUNC_OFFSETS 3.__TEXT.__init_offsets
+4   0x00026168    0xe20 0x00026168    0xe20 -r-x REGULAR           4.__TEXT.__objc_methlist
+5   0x00026f88   0x58f4 0x00026f88   0x58f4 -r-x REGULAR           5.__TEXT.__gcc_except_tab
+6   0x0002c880    0x260 0x0002c880    0x260 -r-x REGULAR           6.__TEXT.__const
+7   0x0002cae0    0x817 0x0002cae0    0x817 -r-x CSTRINGS          7.__TEXT.__cstring
+8   0x0002d2f8    0x408 0x0002d2f8    0x408 -r-x REGULAR           8.__TEXT.__ustring
+9   0x0002d700   0x37c4 0x0002d700   0x37c4 -r-x CSTRINGS          9.__TEXT.__objc_methname
+10  0x00030ec4    0x122 0x00030ec4    0x122 -r-x CSTRINGS          10.__TEXT.__objc_classname
+11  0x00030fe6    0xccb 0x00030fe6    0xccb -r-x CSTRINGS          11.__TEXT.__objc_methtype
+12  0x00031cb4    0x8e0 0x00031cb4    0x8e0 -r-x REGULAR           12.__TEXT.__unwind_info
+13  0x00034000    0x238 0x00034000    0x238 -rw- NONLAZY_POINTERS  13.__DATA_CONST.__got
+14  0x00034238    0x520 0x00034238    0x520 -rw- REGULAR           14.__DATA_CONST.__const
+15  0x00034758   0x18a0 0x00034758   0x18a0 -rw- REGULAR           15.__DATA_CONST.__cfstring
+16  0x00035ff8     0x28 0x00035ff8     0x28 -rw- REGULAR           16.__DATA_CONST.__objc_classlist
+17  0x00036020      0x8 0x00036020      0x8 -rw- REGULAR           17.__DATA_CONST.__objc_catlist
+18  0x00036028     0x38 0x00036028     0x38 -rw- REGULAR           18.__DATA_CONST.__objc_protolist
+19  0x00036060      0x8 0x00036060      0x8 -rw- REGULAR           19.__DATA_CONST.__objc_imageinfo
+20  0x00036068    0x168 0x00036068    0x168 -rw- REGULAR           20.__DATA_CONST.__objc_arraydata
+21  0x000361d0     0xc8 0x000361d0     0xc8 -rw- REGULAR           21.__DATA_CONST.__objc_dictobj
+22  0x00036298     0x78 0x00036298     0x78 -rw- REGULAR           22.__DATA_CONST.__objc_arrayobj
+23  0x00036310     0x18 0x00036310     0x18 -rw- REGULAR           23.__DATA_CONST.__objc_intobj
+24  0x00038000    0xee0 0x00038000    0xee0 -rw- REGULAR           24.__DATA.__objc_const
+25  0x00038ee0   0x11f0 0x00038ee0   0x11f0 -rw- POINTERS          25.__DATA.__objc_selrefs
+26  0x0003a0d0    0x1c0 0x0003a0d0    0x1c0 -rw- REGULAR           26.__DATA.__objc_classrefs
+27  0x0003a290     0x10 0x0003a290     0x10 -rw- REGULAR           27.__DATA.__objc_superrefs
+28  0x0003a2a0     0x6c 0x0003a2a0     0x6c -rw- REGULAR           28.__DATA.__objc_ivar
+29  0x0003a310    0x190 0x0003a310    0x190 -rw- REGULAR           29.__DATA.__objc_data
+30  0x0003a4a0    0x2b0 0x0003a4a0    0x2b0 -rw- REGULAR           30.__DATA.__data
+31  0x00000000      0x0 0x0003a750    0x103 -rw- ZEROFILL          31.__DATA.__bss
+
+[Imports]
+nth vaddr      bind type           lib name
+-------------------------------------------
+0   0x0002312c NONE FUNC               CC_SHA256
+1   ---------- NONE FUNC               CGAffineTransformIdentity
+2   0x00023138 NONE FUNC               CGAffineTransformMakeScale
+3   0x00023144 NONE FUNC               MSHookMessageEx
+4   0x00023150 NONE FUNC               NSClassFromString
+5   ---------- NONE FUNC               NSFontAttributeName
+6   0x0002315c NONE FUNC               NSHomeDirectory
+7   0x00023168 NONE FUNC               NSStringFromClass
+8   ---------- NONE OBJC_CLASS         NSArray
+9   ---------- NONE OBJC_CLASS         NSCharacterSet
+10  ---------- NONE OBJC_CLASS         NSConstantArray
+11  ---------- NONE OBJC_CLASS         NSConstantDictionary
+12  ---------- NONE OBJC_CLASS         NSConstantIntegerNumber
+13  ---------- NONE OBJC_CLASS         NSDictionary
+14  ---------- NONE OBJC_CLASS         NSFileManager
+15  ---------- NONE OBJC_CLASS         NSIndexPath
+16  ---------- NONE OBJC_CLASS         NSKeyedArchiver
+17  ---------- NONE OBJC_CLASS         NSKeyedUnarchiver
+18  ---------- NONE OBJC_CLASS         NSMutableArray
+19  ---------- NONE OBJC_CLASS         NSMutableDictionary
+20  ---------- NONE OBJC_CLASS         NSMutableSet
+21  ---------- NONE OBJC_CLASS         NSMutableString
+22  ---------- NONE OBJC_CLASS         NSNotificationCenter
+23  ---------- NONE OBJC_CLASS         NSNumber
+24  ---------- NONE OBJC_CLASS         NSObject
+25  ---------- NONE OBJC_CLASS         NSOperationQueue
+26  ---------- NONE OBJC_CLASS         NSPredicate
+27  ---------- NONE OBJC_CLASS         NSString
+28  ---------- NONE OBJC_CLASS         NSTimer
+29  ---------- NONE OBJC_CLASS         NSUUID
+30  ---------- NONE OBJC_CLASS         NSUserDefaults
+31  ---------- NONE OBJC_CLASS         UIAlertAction
+32  ---------- NONE OBJC_CLASS         UIAlertController
+33  ---------- NONE OBJC_CLASS         UIApplication
+34  ---------- NONE OBJC_CLASS         UIBarButtonItem
+35  ---------- NONE OBJC_CLASS         UIBlurEffect
+36  ---------- NONE OBJC_CLASS         UIButton
+37  ---------- NONE OBJC_CLASS         UIColor
+38  ---------- NONE OBJC_CLASS         UIColorPickerViewController
+39  ---------- NONE OBJC_CLASS         UIContextualAction
+40  ---------- NONE OBJC_CLASS         UIFont
+41  ---------- NONE OBJC_CLASS         UIImage
+42  ---------- NONE OBJC_CLASS         UIImageView
+43  ---------- NONE OBJC_CLASS         UIImpactFeedbackGenerator
+44  ---------- NONE OBJC_CLASS         UILabel
+45  ---------- NONE OBJC_CLASS         UILongPressGestureRecognizer
+46  ---------- NONE OBJC_CLASS         UINavigationController
+47  ---------- NONE OBJC_CLASS         UIPanGestureRecognizer
+48  ---------- NONE OBJC_CLASS         UIScreen
+49  ---------- NONE OBJC_CLASS         UIScreenEdgePanGestureRecognizer
+50  ---------- NONE OBJC_CLASS         UIScrollView
+51  ---------- NONE OBJC_CLASS         UISearchBar
+52  ---------- NONE OBJC_CLASS         UISegmentedControl
+53  ---------- NONE OBJC_CLASS         UIStackView
+54  ---------- NONE OBJC_CLASS         UISwipeActionsConfiguration
+55  ---------- NONE OBJC_CLASS         UISwipeGestureRecognizer
+56  ---------- NONE OBJC_CLASS         UISwitch
+57  ---------- NONE OBJC_CLASS         UITabBarController
+58  ---------- NONE OBJC_CLASS         UITableView
+59  ---------- NONE OBJC_CLASS         UITableViewCell
+60  ---------- NONE OBJC_CLASS         UITextField
+61  ---------- NONE OBJC_CLASS         UITextView
+62  ---------- NONE OBJC_CLASS         UIView
+63  ---------- NONE OBJC_CLASS         UIViewController
+64  ---------- NONE OBJC_CLASS         UIVisualEffectView
+65  ---------- NONE FUNC               OBJC_EHTYPE_$_NSException
+66  ---------- NONE OBJC_METACLASS     NSObject
+67  ---------- NONE OBJC_METACLASS     UIViewController
+68  ---------- NONE FUNC               UIFontWeightBold
+69  ---------- NONE FUNC               UIFontWeightLight
+70  ---------- NONE FUNC               UIFontWeightMedium
+71  0x00023174 NONE FUNC               UIGraphicsBeginImageContextWithOptions
+72  0x00023180 NONE FUNC               UIGraphicsEndImageContext
+73  0x0002318c NONE FUNC               UIGraphicsGetImageFromCurrentImageContext
+74  ---------- NONE FUNC               UITextFieldTextDidBeginEditingNotification
+75  ---------- NONE FUNC               UITextFieldTextDidChangeNotification
+76  ---------- NONE FUNC               UITextFieldTextDidEndEditingNotification
+77  ---------- NONE FUNC               UITextViewTextDidBeginEditingNotification
+78  ---------- NONE FUNC               UITextViewTextDidChangeNotification
+79  ---------- NONE FUNC               UITextViewTextDidEndEditingNotification
+80  0x00023198 NONE FUNC               _Block_object_assign
+81  0x000231a4 NONE FUNC               _Block_object_dispose
+82  ---------- NONE FUNC               _NSConcreteGlobalBlock
+83  ---------- NONE FUNC               _NSConcreteStackBlock
+84  0x000231b0 NONE FUNC               _Unwind_Resume
+85  ---------- NONE FUNC               __CFConstantStringClassReference
+86  ---------- NONE FUNC               __NSArray0__struct
+87  ---------- NONE FUNC               __NSDictionary0__struct
+88  ---------- NONE FUNC               __kCFBooleanFalse
+89  ---------- NONE FUNC               __kCFBooleanTrue
+90  ---------- NONE FUNC               __objc_personality_v0
+91  0x000231bc NONE FUNC               __stack_chk_fail
+92  ---------- NONE FUNC               __stack_chk_guard
+93  ---------- NONE FUNC               _dispatch_main_q
+94  ---------- NONE FUNC               _objc_empty_cache
+95  0x000231c8 NONE FUNC               class_addMethod
+96  0x000231d4 NONE FUNC               dispatch_after
+97  0x000231e0 NONE FUNC               dispatch_async
+98  0x000231ec NONE FUNC               dispatch_get_global_queue
+99  0x000231f8 NONE FUNC               dispatch_once
+100 0x00023204 NONE FUNC               dispatch_time
+101 ---------- NONE FUNC               kCACornerCurveContinuous
+102 0x00023210 NONE FUNC               objc_alloc
+103 0x0002321c NONE FUNC               objc_alloc_init
+104 0x00023228 NONE FUNC               objc_autoreleasePoolPop
+105 0x00023234 NONE FUNC               objc_autoreleasePoolPush
+106 0x00023240 NONE FUNC               objc_autoreleaseReturnValue
+107 0x0002324c NONE FUNC               objc_begin_catch
+108 0x00023258 NONE FUNC               objc_copyWeak
+109 0x00023264 NONE FUNC               objc_destroyWeak
+110 0x00023270 NONE FUNC               objc_end_catch
+111 0x0002327c NONE FUNC               objc_enumerationMutation
+112 0x00023288 NONE FUNC               objc_getAssociatedObject
+113 0x00023294 NONE FUNC               objc_getClass
+114 0x000232a0 NONE FUNC               objc_initWeak
+115 0x000232ac NONE FUNC               objc_loadWeakRetained
+116 0x000232b8 NONE FUNC               objc_msgSend
+117 0x000232c4 NONE FUNC               objc_msgSendSuper2
+118 0x000232d0 NONE FUNC               objc_opt_class
+119 0x000232dc NONE FUNC               objc_opt_isKindOfClass
+120 0x000232e8 NONE FUNC               objc_opt_respondsToSelector
+121 0x000232f4 NONE FUNC               objc_release
+122 0x00023300 NONE FUNC               objc_retain
+123 0x0002330c NONE FUNC               objc_retainAutorelease
+124 0x00023318 NONE FUNC               objc_retainAutoreleaseReturnValue
+125 0x00023324 NONE FUNC               objc_retainAutoreleasedReturnValue
+126 0x00023330 NONE FUNC               objc_setAssociatedObject
+127 0x0002333c NONE FUNC               objc_setProperty_nonatomic_copy
+128 0x00023348 NONE FUNC               objc_storeStrong
+129 0x00023354 NONE FUNC               objc_storeWeak
+130 0x00023360 NONE FUNC               objc_unsafeClaimAutoreleasedReturnValue
+131 0x0002336c NONE FUNC               strlen
+
+[Symbols]
+nth paddr      vaddr      bind   type size lib name                                          demangled
+------------------------------------------------------------------------------------------------------
+0   0x0003a360 0x0003a360 GLOBAL FUNC 0        _OBJC_CLASS_$_WCPulseSessionMgr
+1   0x0003a310 0x0003a310 GLOBAL FUNC 0        _OBJC_CLASS_$_WPColorPickerManager
+2   0x0003a3b0 0x0003a3b0 GLOBAL FUNC 0        _OBJC_CLASS_$_WPCustomGroupSelectVC
+3   0x0003a400 0x0003a400 GLOBAL FUNC 0        _OBJC_CLASS_$_WPMaterialSelectVC
+4   0x0003a478 0x0003a478 GLOBAL FUNC 0        _OBJC_CLASS_$_WPSettingsTableProvider
+5   0x0003a388 0x0003a388 GLOBAL FUNC 0        _OBJC_METACLASS_$_WCPulseSessionMgr
+6   0x0003a338 0x0003a338 GLOBAL FUNC 0        _OBJC_METACLASS_$_WPColorPickerManager
+7   0x0003a3d8 0x0003a3d8 GLOBAL FUNC 0        _OBJC_METACLASS_$_WPCustomGroupSelectVC
+8   0x0003a428 0x0003a428 GLOBAL FUNC 0        _OBJC_METACLASS_$_WPMaterialSelectVC
+9   0x0003a450 0x0003a450 GLOBAL FUNC 0        _OBJC_METACLASS_$_WPSettingsTableProvider
+10  0x00000000 0x05614542 LOCAL  FUNC 0        radr://5614542
+11  0x0002312c 0x0002312c LOCAL  FUNC 0        imp.CC_SHA256
+12  0x00023138 0x00023138 LOCAL  FUNC 0        imp.CGAffineTransformMakeScale
+13  0x00023144 0x00023144 LOCAL  FUNC 0        imp.MSHookMessageEx
+14  0x00023150 0x00023150 LOCAL  FUNC 0        imp.NSClassFromString
+15  0x0002315c 0x0002315c LOCAL  FUNC 0        imp.NSHomeDirectory
+16  0x00023168 0x00023168 LOCAL  FUNC 0        imp.NSStringFromClass
+17  0x00023174 0x00023174 LOCAL  FUNC 0        imp.UIGraphicsBeginImageContextWithOptions
+18  0x00023180 0x00023180 LOCAL  FUNC 0        imp.UIGraphicsEndImageContext
+19  0x0002318c 0x0002318c LOCAL  FUNC 0        imp.UIGraphicsGetImageFromCurrentImageContext
+20  0x00023198 0x00023198 LOCAL  FUNC 0        imp._Block_object_assign
+21  0x000231a4 0x000231a4 LOCAL  FUNC 0        imp._Block_object_dispose
+22  0x000231b0 0x000231b0 LOCAL  FUNC 0        imp._Unwind_Resume
+23  0x000231bc 0x000231bc LOCAL  FUNC 0        imp.__stack_chk_fail
+24  0x000231c8 0x000231c8 LOCAL  FUNC 0        imp.class_addMethod
+25  0x000231d4 0x000231d4 LOCAL  FUNC 0        imp.dispatch_after
+26  0x000231e0 0x000231e0 LOCAL  FUNC 0        imp.dispatch_async
+27  0x000231ec 0x000231ec LOCAL  FUNC 0        imp.dispatch_get_global_queue
+28  0x000231f8 0x000231f8 LOCAL  FUNC 0        imp.dispatch_once
+29  0x00023204 0x00023204 LOCAL  FUNC 0        imp.dispatch_time
+30  0x00023210 0x00023210 LOCAL  FUNC 0        imp.objc_alloc
+31  0x0002321c 0x0002321c LOCAL  FUNC 0        imp.objc_alloc_init
+32  0x00023228 0x00023228 LOCAL  FUNC 0        imp.objc_autoreleasePoolPop
+33  0x00023234 0x00023234 LOCAL  FUNC 0        imp.objc_autoreleasePoolPush
+34  0x00023240 0x00023240 LOCAL  FUNC 0        imp.objc_autoreleaseReturnValue
+35  0x0002324c 0x0002324c LOCAL  FUNC 0        imp.objc_begin_catch
+36  0x00023258 0x00023258 LOCAL  FUNC 0        imp.objc_copyWeak
+37  0x00023264 0x00023264 LOCAL  FUNC 0        imp.objc_destroyWeak
+38  0x00023270 0x00023270 LOCAL  FUNC 0        imp.objc_end_catch
+39  0x0002327c 0x0002327c LOCAL  FUNC 0        imp.objc_enumerationMutation
+40  0x00023288 0x00023288 LOCAL  FUNC 0        imp.objc_getAssociatedObject
+41  0x00023294 0x00023294 LOCAL  FUNC 0        imp.objc_getClass
+42  0x000232a0 0x000232a0 LOCAL  FUNC 0        imp.objc_initWeak
+43  0x000232ac 0x000232ac LOCAL  FUNC 0        imp.objc_loadWeakRetained
+44  0x000232b8 0x000232b8 LOCAL  FUNC 0        imp.objc_msgSend
+45  0x000232c4 0x000232c4 LOCAL  FUNC 0        imp.objc_msgSendSuper2
+46  0x000232d0 0x000232d0 LOCAL  FUNC 0        imp.objc_opt_class
+47  0x000232dc 0x000232dc LOCAL  FUNC 0        imp.objc_opt_isKindOfClass
+48  0x000232e8 0x000232e8 LOCAL  FUNC 0        imp.objc_opt_respondsToSelector
+49  0x000232f4 0x000232f4 LOCAL  FUNC 0        imp.objc_release
+50  0x00023300 0x00023300 LOCAL  FUNC 0        imp.objc_retain
+51  0x0002330c 0x0002330c LOCAL  FUNC 0        imp.objc_retainAutorelease
+52  0x00023318 0x00023318 LOCAL  FUNC 0        imp.objc_retainAutoreleaseReturnValue
+53  0x00023324 0x00023324 LOCAL  FUNC 0        imp.objc_retainAutoreleasedReturnValue
+54  0x00023330 0x00023330 LOCAL  FUNC 0        imp.objc_setAssociatedObject
+55  0x0002333c 0x0002333c LOCAL  FUNC 0        imp.objc_setProperty_nonatomic_copy
+56  0x00023348 0x00023348 LOCAL  FUNC 0        imp.objc_storeStrong
+57  0x00023354 0x00023354 LOCAL  FUNC 0        imp.objc_storeWeak
+58  0x00023360 0x00023360 LOCAL  FUNC 0        imp.objc_unsafeClaimAutoreleasedReturnValue
+59  0x0002336c 0x0002336c LOCAL  FUNC 0        imp.strlen
+60  0x00004000 0x00004000 LOCAL  FUNC 0        func.00004000
+61  0x00004030 0x00004030 LOCAL  FUNC 0        func.00004030
+62  0x0000405c 0x0000405c LOCAL  FUNC 0        func.0000405c
+63  0x00004174 0x00004174 LOCAL  FUNC 0        func.00004174
+64  0x00004264 0x00004264 LOCAL  FUNC 0        func.00004264
+65  0x00004650 0x00004650 LOCAL  FUNC 0        func.00004650
+66  0x000047ac 0x000047ac LOCAL  FUNC 0        func.000047ac
+67  0x00004b98 0x00004b98 LOCAL  FUNC 0        func.00004b98
+68  0x00004ba0 0x00004ba0 LOCAL  FUNC 0        func.00004ba0
+69  0x00004ba8 0x00004ba8 LOCAL  FUNC 0        func.00004ba8
+70  0x00004bc0 0x00004bc0 LOCAL  FUNC 0        func.00004bc0
+71  0x00004bcc 0x00004bcc LOCAL  FUNC 0        func.00004bcc
+72  0x00004bf8 0x00004bf8 LOCAL  FUNC 0        func.00004bf8
+73  0x00004c28 0x00004c28 LOCAL  FUNC 0        func.00004c28
+74  0x00004cb0 0x00004cb0 LOCAL  FUNC 0        func.00004cb0
+75  0x000050f8 0x000050f8 LOCAL  FUNC 0        func.000050f8
+76  0x0000529c 0x0000529c LOCAL  FUNC 0        func.0000529c
+77  0x00005440 0x00005440 LOCAL  FUNC 0        func.00005440
+78  0x000054fc 0x000054fc LOCAL  FUNC 0        func.000054fc
+79  0x000056d0 0x000056d0 LOCAL  FUNC 0        func.000056d0
+80  0x00005994 0x00005994 LOCAL  FUNC 0        func.00005994
+81  0x00005b78 0x00005b78 LOCAL  FUNC 0        func.00005b78
+82  0x00005be0 0x00005be0 LOCAL  FUNC 0        func.00005be0
+83  0x00006170 0x00006170 LOCAL  FUNC 0        func.00006170
+84  0x000064a4 0x000064a4 LOCAL  FUNC 0        func.000064a4
+85  0x00006768 0x00006768 LOCAL  FUNC 0        func.00006768
+86  0x0000693c 0x0000693c LOCAL  FUNC 0        func.0000693c
+87  0x000079a0 0x000079a0 LOCAL  FUNC 0        func.000079a0
+88  0x00007a34 0x00007a34 LOCAL  FUNC 0        func.00007a34
+89  0x00007abc 0x00007abc LOCAL  FUNC 0        func.00007abc
+90  0x00007b70 0x00007b70 LOCAL  FUNC 0        func.00007b70
+91  0x00007b78 0x00007b78 LOCAL  FUNC 0        func.00007b78
+92  0x00007b84 0x00007b84 LOCAL  FUNC 0        func.00007b84
+93  0x00007b8c 0x00007b8c LOCAL  FUNC 0        func.00007b8c
+94  0x00007b98 0x00007b98 LOCAL  FUNC 0        func.00007b98
+95  0x00007ba0 0x00007ba0 LOCAL  FUNC 0        func.00007ba0
+96  0x00007bac 0x00007bac LOCAL  FUNC 0        func.00007bac
+97  0x00007bb4 0x00007bb4 LOCAL  FUNC 0        func.00007bb4
+98  0x00007bc0 0x00007bc0 LOCAL  FUNC 0        func.00007bc0
+99  0x00007bc8 0x00007bc8 LOCAL  FUNC 0        func.00007bc8
+100 0x00007bd4 0x00007bd4 LOCAL  FUNC 0        func.00007bd4
+101 0x00007bdc 0x00007bdc LOCAL  FUNC 0        func.00007bdc
+102 0x00007be8 0x00007be8 LOCAL  FUNC 0        func.00007be8
+103 0x00007c48 0x00007c48 LOCAL  FUNC 0        func.00007c48
+104 0x0000808c 0x0000808c LOCAL  FUNC 0        func.0000808c
+105 0x00008590 0x00008590 LOCAL  FUNC 0        func.00008590
+106 0x0000882c 0x0000882c LOCAL  FUNC 0        func.0000882c
+107 0x000088a8 0x000088a8 LOCAL  FUNC 0        func.000088a8
+108 0x00009024 0x00009024 LOCAL  FUNC 0        func.00009024
+109 0x00009218 0x00009218 LOCAL  FUNC 0        func.00009218
+110 0x00009318 0x00009318 LOCAL  FUNC 0        func.00009318
+111 0x000093d4 0x000093d4 LOCAL  FUNC 0        func.000093d4
+112 0x0000953c 0x0000953c LOCAL  FUNC 0        func.0000953c
+113 0x00009570 0x00009570 LOCAL  FUNC 0        func.00009570
+114 0x000095a0 0x000095a0 LOCAL  FUNC 0        func.000095a0
+115 0x000095d0 0x000095d0 LOCAL  FUNC 0        func.000095d0
+116 0x000095d8 0x000095d8 LOCAL  FUNC 0        func.000095d8
+117 0x000095e0 0x000095e0 LOCAL  FUNC 0        func.000095e0
+118 0x00009638 0x00009638 LOCAL  FUNC 0        func.00009638
+119 0x000096bc 0x000096bc LOCAL  FUNC 0        func.000096bc
+120 0x00009844 0x00009844 LOCAL  FUNC 0        func.00009844
+121 0x00009970 0x00009970 LOCAL  FUNC 0        func.00009970
+122 0x000099c0 0x000099c0 LOCAL  FUNC 0        func.000099c0
+123 0x00009c68 0x00009c68 LOCAL  FUNC 0        func.00009c68
+124 0x00009ee4 0x00009ee4 LOCAL  FUNC 0        func.00009ee4
+125 0x00009f3c 0x00009f3c LOCAL  FUNC 0        func.00009f3c
+126 0x0000a240 0x0000a240 LOCAL  FUNC 0        func.0000a240
+127 0x0000a284 0x0000a284 LOCAL  FUNC 0        func.0000a284
+128 0x0000a294 0x0000a294 LOCAL  FUNC 0        func.0000a294
+129 0x0000a2a8 0x0000a2a8 LOCAL  FUNC 0        func.0000a2a8
+130 0x0000a2b8 0x0000a2b8 LOCAL  FUNC 0        func.0000a2b8
+131 0x0000a2cc 0x0000a2cc LOCAL  FUNC 0        func.0000a2cc
+132 0x0000a2dc 0x0000a2dc LOCAL  FUNC 0        func.0000a2dc
+133 0x0000a2f0 0x0000a2f0 LOCAL  FUNC 0        func.0000a2f0
+134 0x0000a300 0x0000a300 LOCAL  FUNC 0        func.0000a300
+135 0x0000a314 0x0000a314 LOCAL  FUNC 0        func.0000a314
+136 0x0000a324 0x0000a324 LOCAL  FUNC 0        func.0000a324
+137 0x0000a338 0x0000a338 LOCAL  FUNC 0        func.0000a338
+138 0x0000a348 0x0000a348 LOCAL  FUNC 0        func.0000a348
+139 0x0000a35c 0x0000a35c LOCAL  FUNC 0        func.0000a35c
+140 0x0000a36c 0x0000a36c LOCAL  FUNC 0        func.0000a36c
+141 0x0000a380 0x0000a380 LOCAL  FUNC 0        func.0000a380
+142 0x0000a390 0x0000a390 LOCAL  FUNC 0        func.0000a390
+143 0x0000a3a4 0x0000a3a4 LOCAL  FUNC 0        func.0000a3a4
+144 0x0000a3b4 0x0000a3b4 LOCAL  FUNC 0        func.0000a3b4
+145 0x0000a3c4 0x0000a3c4 LOCAL  FUNC 0        func.0000a3c4
+146 0x0000a3d4 0x0000a3d4 LOCAL  FUNC 0        func.0000a3d4
+147 0x0000a3e0 0x0000a3e0 LOCAL  FUNC 0        func.0000a3e0
+148 0x0000a4ac 0x0000a4ac LOCAL  FUNC 0        func.0000a4ac
+149 0x0000a9dc 0x0000a9dc LOCAL  FUNC 0        func.0000a9dc
+150 0x0000aa2c 0x0000aa2c LOCAL  FUNC 0        func.0000aa2c
+151 0x0000ada4 0x0000ada4 LOCAL  FUNC 0        func.0000ada4
+152 0x0000b198 0x0000b198 LOCAL  FUNC 0        func.0000b198
+153 0x0000b1a4 0x0000b1a4 LOCAL  FUNC 0        func.0000b1a4
+154 0x0000b1b4 0x0000b1b4 LOCAL  FUNC 0        func.0000b1b4
+155 0x0000b1c8 0x0000b1c8 LOCAL  FUNC 0        func.0000b1c8
+156 0x0000b1d8 0x0000b1d8 LOCAL  FUNC 0        func.0000b1d8
+157 0x0000b1e8 0x0000b1e8 LOCAL  FUNC 0        func.0000b1e8
+158 0x0000b1f8 0x0000b1f8 LOCAL  FUNC 0        func.0000b1f8
+159 0x0000b20c 0x0000b20c LOCAL  FUNC 0        func.0000b20c
+160 0x0000b21c 0x0000b21c LOCAL  FUNC 0        func.0000b21c
+161 0x0000b230 0x0000b230 LOCAL  FUNC 0        func.0000b230
+162 0x0000b284 0x0000b284 LOCAL  FUNC 0        func.0000b284
+163 0x0000b30c 0x0000b30c LOCAL  FUNC 0        func.0000b30c
+164 0x0000ba74 0x0000ba74 LOCAL  FUNC 0        func.0000ba74
+165 0x0000c280 0x0000c280 LOCAL  FUNC 0        func.0000c280
+166 0x0000c28c 0x0000c28c LOCAL  FUNC 0        func.0000c28c
+167 0x0000c8d4 0x0000c8d4 LOCAL  FUNC 0        func.0000c8d4
+168 0x0000cb0c 0x0000cb0c LOCAL  FUNC 0        func.0000cb0c
+169 0x0000cb44 0x0000cb44 LOCAL  FUNC 0        func.0000cb44
+170 0x0000cb74 0x0000cb74 LOCAL  FUNC 0        func.0000cb74
+171 0x0000cd4c 0x0000cd4c LOCAL  FUNC 0        func.0000cd4c
+172 0x0000cd74 0x0000cd74 LOCAL  FUNC 0        func.0000cd74
+173 0x0000cd9c 0x0000cd9c LOCAL  FUNC 0        func.0000cd9c
+174 0x0000d328 0x0000d328 LOCAL  FUNC 0        func.0000d328
+175 0x0000d44c 0x0000d44c LOCAL  FUNC 0        func.0000d44c
+176 0x0000d47c 0x0000d47c LOCAL  FUNC 0        func.0000d47c
+177 0x0000d4a4 0x0000d4a4 LOCAL  FUNC 0        func.0000d4a4
+178 0x0000d804 0x0000d804 LOCAL  FUNC 0        func.0000d804
+179 0x0000da98 0x0000da98 LOCAL  FUNC 0        func.0000da98
+180 0x0000daa4 0x0000daa4 LOCAL  FUNC 0        func.0000daa4
+181 0x0000dd28 0x0000dd28 LOCAL  FUNC 0        func.0000dd28
+182 0x0000dd68 0x0000dd68 LOCAL  FUNC 0        func.0000dd68
+183 0x0000dda0 0x0000dda0 LOCAL  FUNC 0        func.0000dda0
+184 0x0000e410 0x0000e410 LOCAL  FUNC 0        func.0000e410
+185 0x0000e41c 0x0000e41c LOCAL  FUNC 0        func.0000e41c
+186 0x0000e420 0x0000e420 LOCAL  FUNC 0        func.0000e420
+187 0x0000e538 0x0000e538 LOCAL  FUNC 0        func.0000e538
+188 0x0000e574 0x0000e574 LOCAL  FUNC 0        func.0000e574
+189 0x0000e5a8 0x0000e5a8 LOCAL  FUNC 0        func.0000e5a8
+190 0x0000e5b4 0x0000e5b4 LOCAL  FUNC 0        func.0000e5b4
+191 0x0000e6a0 0x0000e6a0 LOCAL  FUNC 0        func.0000e6a0
+192 0x0000e770 0x0000e770 LOCAL  FUNC 0        func.0000e770
+193 0x0000e894 0x0000e894 LOCAL  FUNC 0        func.0000e894
+194 0x0000ee0c 0x0000ee0c LOCAL  FUNC 0        func.0000ee0c
+195 0x0000eee4 0x0000eee4 LOCAL  FUNC 0        func.0000eee4
+196 0x0000eefc 0x0000eefc LOCAL  FUNC 0        func.0000eefc
+197 0x0000ef08 0x0000ef08 LOCAL  FUNC 0        func.0000ef08
+198 0x0000ef10 0x0000ef10 LOCAL  FUNC 0        func.0000ef10
+199 0x0000ef1c 0x0000ef1c LOCAL  FUNC 0        func.0000ef1c
+200 0x0000ef24 0x0000ef24 LOCAL  FUNC 0        func.0000ef24
+201 0x0000ef30 0x0000ef30 LOCAL  FUNC 0        func.0000ef30
+202 0x0000ef38 0x0000ef38 LOCAL  FUNC 0        func.0000ef38
+203 0x0000ef44 0x0000ef44 LOCAL  FUNC 0        func.0000ef44
+204 0x0000ef4c 0x0000ef4c LOCAL  FUNC 0        func.0000ef4c
+205 0x0000ef58 0x0000ef58 LOCAL  FUNC 0        func.0000ef58
+206 0x0000efa8 0x0000efa8 LOCAL  FUNC 0        func.0000efa8
+207 0x0000efb4 0x0000efb4 LOCAL  FUNC 0        func.0000efb4
+208 0x0000efc4 0x0000efc4 LOCAL  FUNC 0        func.0000efc4
+209 0x0000efd0 0x0000efd0 LOCAL  FUNC 0        func.0000efd0
+210 0x0000efe0 0x0000efe0 LOCAL  FUNC 0        func.0000efe0
+211 0x0000efec 0x0000efec LOCAL  FUNC 0        func.0000efec
+212 0x0000effc 0x0000effc LOCAL  FUNC 0        func.0000effc
+213 0x0000f008 0x0000f008 LOCAL  FUNC 0        func.0000f008
+214 0x0000f018 0x0000f018 LOCAL  FUNC 0        func.0000f018
+215 0x0000f024 0x0000f024 LOCAL  FUNC 0        func.0000f024
+216 0x0000f034 0x0000f034 LOCAL  FUNC 0        func.0000f034
+217 0x0000f2e4 0x0000f2e4 LOCAL  FUNC 0        func.0000f2e4
+218 0x0000f3f8 0x0000f3f8 LOCAL  FUNC 0        func.0000f3f8
+219 0x0000f604 0x0000f604 LOCAL  FUNC 0        func.0000f604
+220 0x0000f6e8 0x0000f6e8 LOCAL  FUNC 0        func.0000f6e8
+221 0x0000fbb4 0x0000fbb4 LOCAL  FUNC 0        func.0000fbb4
+222 0x0000feac 0x0000feac LOCAL  FUNC 0        func.0000feac
+223 0x0001117c 0x0001117c LOCAL  FUNC 0        func.0001117c
+224 0x00011b90 0x00011b90 LOCAL  FUNC 0        func.00011b90
+225 0x00011d5c 0x00011d5c LOCAL  FUNC 0        func.00011d5c
+226 0x00011dfc 0x00011dfc LOCAL  FUNC 0        func.00011dfc
+227 0x00011fa0 0x00011fa0 LOCAL  FUNC 0        func.00011fa0
+228 0x00012040 0x00012040 LOCAL  FUNC 0        func.00012040
+229 0x000121cc 0x000121cc LOCAL  FUNC 0        func.000121cc
+230 0x00013694 0x00013694 LOCAL  FUNC 0        func.00013694
+231 0x0001391c 0x0001391c LOCAL  FUNC 0        func.0001391c
+232 0x00013ba4 0x00013ba4 LOCAL  FUNC 0        func.00013ba4
+233 0x00013f64 0x00013f64 LOCAL  FUNC 0        func.00013f64
+234 0x00014a08 0x00014a08 LOCAL  FUNC 0        func.00014a08
+235 0x00014a50 0x00014a50 LOCAL  FUNC 0        func.00014a50
+236 0x00014a98 0x00014a98 LOCAL  FUNC 0        func.00014a98
+237 0x00014dc4 0x00014dc4 LOCAL  FUNC 0        func.00014dc4
+238 0x00014e70 0x00014e70 LOCAL  FUNC 0        func.00014e70
+239 0x00014edc 0x00014edc LOCAL  FUNC 0        func.00014edc
+240 0x00014f58 0x00014f58 LOCAL  FUNC 0        func.00014f58
+241 0x00015538 0x00015538 LOCAL  FUNC 0        func.00015538
+242 0x000156e4 0x000156e4 LOCAL  FUNC 0        func.000156e4
+243 0x000167f8 0x000167f8 LOCAL  FUNC 0        func.000167f8
+244 0x00016fc0 0x00016fc0 LOCAL  FUNC 0        func.00016fc0
+245 0x00017014 0x00017014 LOCAL  FUNC 0        func.00017014
+246 0x00017050 0x00017050 LOCAL  FUNC 0        func.00017050
+247 0x000170a4 0x000170a4 LOCAL  FUNC 0        func.000170a4
+248 0x000170f8 0x000170f8 LOCAL  FUNC 0        func.000170f8
+249 0x0001b8e0 0x0001b8e0 LOCAL  FUNC 0        func.0001b8e0
+250 0x0001b940 0x0001b940 LOCAL  FUNC 0        func.0001b940
+251 0x0001baac 0x0001baac LOCAL  FUNC 0        func.0001baac
+252 0x0001bab8 0x0001bab8 LOCAL  FUNC 0        func.0001bab8
+253 0x0001bae4 0x0001bae4 LOCAL  FUNC 0        func.0001bae4
+254 0x0001bb98 0x0001bb98 LOCAL  FUNC 0        func.0001bb98
+255 0x0001bc4c 0x0001bc4c LOCAL  FUNC 0        func.0001bc4c
+256 0x0001bd08 0x0001bd08 LOCAL  FUNC 0        func.0001bd08
+257 0x0001bdc8 0x0001bdc8 LOCAL  FUNC 0        func.0001bdc8
+258 0x0001beb0 0x0001beb0 LOCAL  FUNC 0        func.0001beb0
+259 0x0001bf80 0x0001bf80 LOCAL  FUNC 0        func.0001bf80
+260 0x0001c040 0x0001c040 LOCAL  FUNC 0        func.0001c040
+261 0x0001c100 0x0001c100 LOCAL  FUNC 0        func.0001c100
+262 0x0001c1c0 0x0001c1c0 LOCAL  FUNC 0        func.0001c1c0
+263 0x0001c280 0x0001c280 LOCAL  FUNC 0        func.0001c280
+264 0x0001c340 0x0001c340 LOCAL  FUNC 0        func.0001c340
+265 0x0001c400 0x0001c400 LOCAL  FUNC 0        func.0001c400
+266 0x0001c4a4 0x0001c4a4 LOCAL  FUNC 0        func.0001c4a4
+267 0x0001c564 0x0001c564 LOCAL  FUNC 0        func.0001c564
+268 0x0001c5c0 0x0001c5c0 LOCAL  FUNC 0        func.0001c5c0
+269 0x0001c6b8 0x0001c6b8 LOCAL  FUNC 0        func.0001c6b8
+270 0x0001c7b0 0x0001c7b0 LOCAL  FUNC 0        func.0001c7b0
+271 0x0001c920 0x0001c920 LOCAL  FUNC 0        func.0001c920
+272 0x0001c9ec 0x0001c9ec LOCAL  FUNC 0        func.0001c9ec
+273 0x0001cb18 0x0001cb18 LOCAL  FUNC 0        func.0001cb18
+274 0x0001cc44 0x0001cc44 LOCAL  FUNC 0        func.0001cc44
+275 0x0001cde4 0x0001cde4 LOCAL  FUNC 0        func.0001cde4
+276 0x0001cf84 0x0001cf84 LOCAL  FUNC 0        func.0001cf84
+277 0x0001d024 0x0001d024 LOCAL  FUNC 0        func.0001d024
+278 0x0001d140 0x0001d140 LOCAL  FUNC 0        func.0001d140
+279 0x0001d260 0x0001d260 LOCAL  FUNC 0        func.0001d260
+280 0x0001d3f4 0x0001d3f4 LOCAL  FUNC 0        func.0001d3f4
+281 0x0001d574 0x0001d574 LOCAL  FUNC 0        func.0001d574
+282 0x0001d888 0x0001d888 LOCAL  FUNC 0        func.0001d888
+283 0x0001d8e4 0x0001d8e4 LOCAL  FUNC 0        func.0001d8e4
+284 0x0001d940 0x0001d940 LOCAL  FUNC 0        func.0001d940
+285 0x0001d99c 0x0001d99c LOCAL  FUNC 0        func.0001d99c
+286 0x0001d9f8 0x0001d9f8 LOCAL  FUNC 0        func.0001d9f8
+287 0x0001dc84 0x0001dc84 LOCAL  FUNC 0        func.0001dc84
+288 0x0001e0fc 0x0001e0fc LOCAL  FUNC 0        func.0001e0fc
+289 0x0001e41c 0x0001e41c LOCAL  FUNC 0        func.0001e41c
+290 0x0001e56c 0x0001e56c LOCAL  FUNC 0        func.0001e56c
+291 0x0001eb2c 0x0001eb2c LOCAL  FUNC 0        func.0001eb2c
+292 0x0001ebe8 0x0001ebe8 LOCAL  FUNC 0        func.0001ebe8
+293 0x0001eca4 0x0001eca4 LOCAL  FUNC 0        func.0001eca4
+294 0x0001f0c4 0x0001f0c4 LOCAL  FUNC 0        func.0001f0c4
+295 0x0001f334 0x0001f334 LOCAL  FUNC 0        func.0001f334
+296 0x0001f518 0x0001f518 LOCAL  FUNC 0        func.0001f518
+297 0x0001f590 0x0001f590 LOCAL  FUNC 0        func.0001f590
+298 0x0001f608 0x0001f608 LOCAL  FUNC 0        func.0001f608
+299 0x0001f6a8 0x0001f6a8 LOCAL  FUNC 0        func.0001f6a8
+300 0x0001f900 0x0001f900 LOCAL  FUNC 0        func.0001f900
+301 0x0001fdb4 0x0001fdb4 LOCAL  FUNC 0        func.0001fdb4
+302 0x0001ff74 0x0001ff74 LOCAL  FUNC 0        func.0001ff74
+303 0x00020134 0x00020134 LOCAL  FUNC 0        func.00020134
+304 0x0002035c 0x0002035c LOCAL  FUNC 0        func.0002035c
+305 0x00020584 0x00020584 LOCAL  FUNC 0        func.00020584
+306 0x000207c0 0x000207c0 LOCAL  FUNC 0        func.000207c0
+307 0x00020a84 0x00020a84 LOCAL  FUNC 0        func.00020a84
+308 0x00020cc0 0x00020cc0 LOCAL  FUNC 0        func.00020cc0
+309 0x00020f84 0x00020f84 LOCAL  FUNC 0        func.00020f84
+310 0x0002110c 0x0002110c LOCAL  FUNC 0        func.0002110c
+311 0x00021228 0x00021228 LOCAL  FUNC 0        func.00021228
+312 0x000212bc 0x000212bc LOCAL  FUNC 0        func.000212bc
+313 0x00021814 0x00021814 LOCAL  FUNC 0        func.00021814
+314 0x000218c4 0x000218c4 LOCAL  FUNC 0        func.000218c4
+315 0x00021bd0 0x00021bd0 LOCAL  FUNC 0        func.00021bd0
+316 0x00021c64 0x00021c64 LOCAL  FUNC 0        func.00021c64
+317 0x00021fbc 0x00021fbc LOCAL  FUNC 0        func.00021fbc
+318 0x0002212c 0x0002212c LOCAL  FUNC 0        func.0002212c
+319 0x00022338 0x00022338 LOCAL  FUNC 0        func.00022338
+320 0x000226f0 0x000226f0 LOCAL  FUNC 0        func.000226f0
+321 0x000228c8 0x000228c8 LOCAL  FUNC 0        func.000228c8
+322 0x00022a94 0x00022a94 LOCAL  FUNC 0        func.00022a94
+323 0x00022bc8 0x00022bc8 LOCAL  FUNC 0        func.00022bc8
+324 0x00022bd4 0x00022bd4 LOCAL  FUNC 0        func.00022bd4
+325 0x00022bdc 0x00022bdc LOCAL  FUNC 0        func.00022bdc
+326 0x00022ce0 0x00022ce0 LOCAL  FUNC 0        func.00022ce0
+327 0x00022d50 0x00022d50 LOCAL  FUNC 0        func.00022d50
+328 0x00022df8 0x00022df8 LOCAL  FUNC 0        func.00022df8
+329 0x00022ea0 0x00022ea0 LOCAL  FUNC 0        func.00022ea0
+330 0x00023104 0x00023104 LOCAL  FUNC 0        func.00023104
+331 0x00023118 0x00023118 LOCAL  FUNC 0        func.00023118
+0x00038ea0 [0x0000efa8 - 0x0001d9f8]  59984 objc class 0 UIViewController(WPGroupUI) :: UIViewController
+0x0000efa8 objc   method   0      wp_groupHeaderView
+0x0000efb4 objc   method   1      setWp_groupHeaderView:
+0x0000efc4 objc   method   2      wp_sideDockView
+0x0000efd0 objc   method   3      setWp_sideDockView:
+0x0000efe0 objc   method   4      wp_dockTimer
+0x0000efec objc   method   5      setWp_dockTimer:
+0x0000effc objc   method   6      wp_settingsProvider
+0x0000f008 objc   method   7      setWp_settingsProvider:
+0x0000f018 objc   method   8      wp_originalSearchBar
+0x0000f024 objc   method   9      setWp_originalSearchBar:
+0x0000f034 objc   method  10      findChatListInMainView:
+0x0000f2e4 objc   method  11      wp_refreshMainList
+0x0000f604 objc   method  12      wp_refreshSettingsTable
+0x0000f6e8 objc   method  13      wp_installListSwipeGestures
+0x0000fbb4 objc   method  14      wp_forceRebuildGlassUI
+0x0000feac objc   method  15      wp_installGlassHeaderUI
+0x0001117c objc   method  16      wp_installSideDockUI
+0x00011b90 objc   method  17      wp_showSideDock
+0x00011dfc objc   method  18      wp_hideSideDock
+0x00012040 objc   method  19      wp_startDockTimer
+0x000121cc objc   method  20      wp_updateSliderAndTextUI
+0x00014a98 objc   method  21      wp_triggerGroupChange
+0x00014e70 objc   method  22      wp_onGroupSegmentClicked:
+0x00014edc objc   method  23      wp_onDockIconClicked:
+0x00014f58 objc   method  24      wp_handleDockPan:
+0x00015538 objc   method  25      wp_handleSwipeGesture:
+0x000156e4 objc   method  26      wp_handleEdgePanGesture:
+0x000167f8 objc   method  27      wp_handlePanGesture:
+0x00017050 objc   method  28      wp_handleLongPressGesture:
+0x000170a4 objc   method  29      wp_handleDockLongPress:
+0x000170f8 objc   method  30      wp_showCustomSettingsPanel
+0x0001b940 objc   method  31      wp_closePanel
+0x0001bae4 objc   method  32      wp_toggleLoopSwipe:
+0x0001bb98 objc   method  33      wp_toggleReverseSwipe:
+0x0001bc4c objc   method  34      wp_hapticLevelChanged:
+0x0001bd08 objc   method  35      wp_toggleFilterCustomFromFriends:
+0x0001bdc8 objc   method  36      wp_toggleUseNativeBadges:
+0x0001beb0 objc   method  37      wp_toggleHideSideDock:
+0x0001bf80 objc   method  38      wp_toggleTopCompatMode:
+0x0001c040 objc   method  39      wp_toggleHideTopBar:
+0x0001c100 objc   method  40      wp_toggleFixedSideDock:
+0x0001c1c0 objc   method  41      wp_toggleHideTopBadges:
+0x0001c280 objc   method  42      wp_toggleHideDockBadges:
+0x0001c340 objc   method  43      wp_toggleUseGlobalCustomBadge:
+0x0001c400 objc   method  44      wp_selectGlobalCustomBadge
+0x0001c4a4 objc   method  45      wp_toggleRemoveTopBlur:
+0x0001c564 objc   method  46      wp_pickHeaderContainerBgColor
+0x0001c5c0 objc   method  47      wp_stepperMinus:
+0x0001c6b8 objc   method  48      wp_stepperPlus:
+0x0001c7b0 objc   method  49      wp_updateStepperLabel
+0x0001c920 objc   method  50      wp_sideSegChanged:
+0x0001c9ec objc   method  51      wp_posMinus:
+0x0001cb18 objc   method  52      wp_posPlus:
+0x0001cc44 objc   method  53      wp_updatePosLabel
+0x0001cde4 objc   method  54      wp_applyDockPosition
+0x0001d024 objc   method  55      wp_topMarginMinus:
+0x0001d140 objc   method  56      wp_topMarginPlus:
+0x0001d260 objc   method  57      wp_updateTopMarginLabel
+0x0001d3f4 objc   method  58      wp_addNewGroup
+0x0001d888 objc   method  59      wp_pickTopTextColor
+0x0001d8e4 objc   method  60      wp_pickTopBgColor
+0x0001d940 objc   method  61      wp_pickBgColor
+0x0001d99c objc   method  62      wp_pickShadowColor
+0x0001d9f8 objc   method  63      wp_resetColors
+0x00000000 objc property   0      wp_groupHeaderView
+0x00000000 objc property   1      wp_sideDockView
+0x00000000 objc property   2      wp_dockTimer
+0x00000000 objc property   3      wp_settingsProvider
+0x00000000 objc property   4      wp_originalSearchBar
+0x0003a338 [0x00004000 - 0x00004bcc]   3020 objc class 1 WPColorPickerManager :: NSObject
+0x0000405c objc   method   0      pickColorForKey:fromVC:
+0x00004264 objc   method   1      colorPickerViewControllerDidFinish:
+0x000047ac objc   method   2      colorPickerViewControllerDidSelectColor:
+0x00004b98 objc   method   3      currentSettingKey
+0x00004ba0 objc   method   4      setCurrentSettingKey:
+0x00004ba8 objc   method   5      parentVC
+0x00004bc0 objc   method   6      setParentVC:
+0x00004bcc objc   method   7      .cxx_destruct
+0x00004000 objc   method   8 c    shared
+0x00000000 objc      var   0      isa
+0x0003a2a0 objc      var   1      _currentSettingKey
+0x0003a2a4 objc      var   2      _parentVC
+0x00000000 objc property   3      currentSettingKey
+0x00000000 objc property   4      parentVC
+0x00000000 objc property   5      hash
+0x00000000 objc property   6      superclass
+0x00000000 objc property   7      description
+0x00000000 objc property   8      debugDescription
+0x0003a388 [0x00004bf8 - 0x00007be8]  12272 objc class 2 WCPulseSessionMgr :: NSObject
+0x00004cb0 objc   method   0      setupDefaultGroups
+0x000050f8 objc   method   1      activeGroupConfigs
+0x0000529c objc   method   2      hiddenGroupConfigs
+0x00005440 objc   method   3      saveConfigs
+0x000054fc objc   method   4      renameGroup:toName:
+0x000056d0 objc   method   5      setGroup:visible:
+0x00005994 objc   method   6      moveGroup:forward:
+0x00005b78 objc   method   7      resetConfigs
+0x00005be0 objc   method   8      reloadSessions
+0x00006170 objc   method   9      rebuildFilteredSessions
+0x000064a4 objc   method  10      getUnreadForTypeId:
+0x00006768 objc   method  11      extractUnreadFromSession:
+0x0000693c objc   method  12      filterSessions:withGroupName:needTop:
+0x00007abc objc   method  13      isChatSession:
+0x00007b70 objc   method  14      groupConfigs
+0x00007b78 objc   method  15      setGroupConfigs:
+0x00007b84 objc   method  16      currentSelectGroup
+0x00007b8c objc   method  17      setCurrentSelectGroup:
+0x00007b98 objc   method  18      allSessions
+0x00007ba0 objc   method  19      setAllSessions:
+0x00007bac objc   method  20      filteredTopSessions
+0x00007bb4 objc   method  21      setFilteredTopSessions:
+0x00007bc0 objc   method  22      filteredNormalSessions
+0x00007bc8 objc   method  23      setFilteredNormalSessions:
+0x00007bd4 objc   method  24      unreadCounts
+0x00007bdc objc   method  25      setUnreadCounts:
+0x00007be8 objc   method  26      .cxx_destruct
+0x00004bf8 objc   method  27 c    shared
+0x00000000 objc      var   0      isa
+0x0003a2a8 objc      var   1      _groupConfigs
+0x0003a2ac objc      var   2      _currentSelectGroup
+0x0003a2b0 objc      var   3      _allSessions
+0x0003a2b4 objc      var   4      _filteredTopSessions
+0x0003a2b8 objc      var   5      _filteredNormalSessions
+0x0003a2bc objc      var   6      _unreadCounts
+0x00000000 objc property   7      groupConfigs
+0x00000000 objc property   8      currentSelectGroup
+0x00000000 objc property   9      allSessions
+0x00000000 objc property  10      filteredTopSessions
+0x00000000 objc property  11      filteredNormalSessions
+0x00000000 objc property  12      unreadCounts
+0x0003a3d8 [0x00007c48 - 0x0000a3e0]  10136 objc class 3 WPCustomGroupSelectVC :: UIViewController
+0x00007c48 objc   method   0      viewDidLoad
+0x0000808c objc   method   1      setupHeaderView
+0x00008590 objc   method   2      setupTableView
+0x0000882c objc   method   3      loadContacts
+0x000095e0 objc   method   4      segmentChanged:
+0x00009638 objc   method   5      textFieldDidChange:
+0x000096bc objc   method   6      filterData
+0x00009970 objc   method   7      tableView:numberOfRowsInSection:
+0x000099c0 objc   method   8      tableView:cellForRowAtIndexPath:
+0x00009c68 objc   method   9      tableView:didSelectRowAtIndexPath:
+0x00009ee4 objc   method  10      cancel
+0x00009f3c objc   method  11      save
+0x0000a240 objc   method  12      scrollViewDidScroll:
+0x0000a284 objc   method  13      typeId
+0x0000a294 objc   method  14      setTypeId:
+0x0000a2a8 objc   method  15      tableView
+0x0000a2b8 objc   method  16      setTableView:
+0x0000a2cc objc   method  17      segmentControl
+0x0000a2dc objc   method  18      setSegmentControl:
+0x0000a2f0 objc   method  19      searchField
+0x0000a300 objc   method  20      setSearchField:
+0x0000a314 objc   method  21      privateContactsList
+0x0000a324 objc   method  22      setPrivateContactsList:
+0x0000a338 objc   method  23      groupContactsList
+0x0000a348 objc   method  24      setGroupContactsList:
+0x0000a35c objc   method  25      currentDisplayList
+0x0000a36c objc   method  26      setCurrentDisplayList:
+0x0000a380 objc   method  27      selectedWxids
+0x0000a390 objc   method  28      setSelectedWxids:
+0x0000a3a4 objc   method  29      currentSegmentIndex
+0x0000a3b4 objc   method  30      setCurrentSegmentIndex:
+0x0000a3c4 objc   method  31      searchText
+0x0000a3d4 objc   method  32      setSearchText:
+0x0000a3e0 objc   method  33      .cxx_destruct
+0x00000000 objc      var   0      isa
+0x0003a2c0 objc      var   1      _typeId
+0x0003a2c4 objc      var   2      _tableView
+0x0003a2c8 objc      var   3      _segmentControl
+0x0003a2cc objc      var   4      _searchField
+0x0003a2d0 objc      var   5      _privateContactsList
+0x0003a2d4 objc      var   6      _groupContactsList
+0x0003a2d8 objc      var   7      _currentDisplayList
+0x0003a2dc objc      var   8      _selectedWxids
+0x0003a2e0 objc      var   9      _currentSegmentIndex
+0x0003a2e4 objc      var  10      _searchText
+0x00000000 objc property  11      typeId
+0x00000000 objc property  12      tableView
+0x00000000 objc property  13      segmentControl
+0x00000000 objc property  14      searchField
+0x00000000 objc property  15      privateContactsList
+0x00000000 objc property  16      groupContactsList
+0x00000000 objc property  17      currentDisplayList
+0x00000000 objc property  18      selectedWxids
+0x00000000 objc property  19      currentSegmentIndex
+0x00000000 objc property  20      searchText
+0x00000000 objc property  21      hash
+0x00000000 objc property  22      superclass
+0x00000000 objc property  23      description
+0x00000000 objc property  24      debugDescription
+0x0003a428 [0x0000a4ac - 0x0000b230]   3460 objc class 4 WPMaterialSelectVC :: UIViewController
+0x0000a4ac objc   method   0      viewDidLoad
+0x0000a9dc objc   method   1      tableView:numberOfRowsInSection:
+0x0000aa2c objc   method   2      tableView:cellForRowAtIndexPath:
+0x0000ada4 objc   method   3      tableView:didSelectRowAtIndexPath:
+0x0000b198 objc   method   4      cancel
+0x0000b1a4 objc   method   5      typeId
+0x0000b1b4 objc   method   6      setTypeId:
+0x0000b1c8 objc   method   7      isForGlobalBadge
+0x0000b1d8 objc   method   8      setIsForGlobalBadge:
+0x0000b1e8 objc   method   9      files
+0x0000b1f8 objc   method  10      setFiles:
+0x0000b20c objc   method  11      tableView
+0x0000b21c objc   method  12      setTableView:
+0x0000b230 objc   method  13      .cxx_destruct
+0x00000000 objc      var   0      isa
+0x0003a2ec objc      var   1      _isForGlobalBadge
+0x0003a2e8 objc      var   2      _typeId
+0x0003a2f0 objc      var   3      _files
+0x0003a2f4 objc      var   4      _tableView
+0x00000000 objc property   5      typeId
+0x00000000 objc property   6      isForGlobalBadge
+0x00000000 objc property   7      files
+0x00000000 objc property   8      tableView
+0x00000000 objc property   9      hash
+0x00000000 objc property  10      superclass
+0x00000000 objc property  11      description
+0x00000000 objc property  12      debugDescription
+0x0003a450 [0x0000b284 - 0x0000ef58]  15572 objc class 5 WPSettingsTableProvider :: NSObject
+0x0000b284 objc   method   0      tableView:numberOfRowsInSection:
+0x0000b30c objc   method   1      tableView:cellForRowAtIndexPath:
+0x0000c280 objc   method   2      tableView:heightForRowAtIndexPath:
+0x0000c28c objc   method   3      tableView:trailingSwipeActionsConfigurationForRowAtIndexPath:
+0x0000d4a4 objc   method   4      tableView:leadingSwipeActionsConfigurationForRowAtIndexPath:
+0x0000dda0 objc   method   5      handleLongPress:
+0x0000e770 objc   method   6      customSnapshotFromView:
+0x0000e894 objc   method   7      onSelectDoneWithContacts:
+0x0000ee0c objc   method   8      onSelectCancel
+0x0000eee4 objc   method   9      parentVC
+0x0000eefc objc   method  10      setParentVC:
+0x0000ef08 objc   method  11      tableView
+0x0000ef10 objc   method  12      setTableView:
+0x0000ef1c objc   method  13      snapshot
+0x0000ef24 objc   method  14      setSnapshot:
+0x0000ef30 objc   method  15      sourceIndexPath
+0x0000ef38 objc   method  16      setSourceIndexPath:
+0x0000ef44 objc   method  17      editingTypeId
+0x0000ef4c objc   method  18      setEditingTypeId:
+0x0000ef58 objc   method  19      .cxx_destruct
+0x00000000 objc      var   0      isa
+0x0003a2f8 objc      var   1      _parentVC
+0x0003a2fc objc      var   2      _tableView
+0x0003a300 objc      var   3      _snapshot
+0x0003a304 objc      var   4      _sourceIndexPath
+0x0003a308 objc      var   5      _editingTypeId
+0x00000000 objc property   6      parentVC
+0x00000000 objc property   7      tableView
+0x00000000 objc property   8      snapshot
+0x00000000 objc property   9      sourceIndexPath
+0x00000000 objc property  10      editingTypeId
+0x00000000 objc property  11      hash
+0x00000000 objc property  12      superclass
+0x00000000 objc property  13      description
+0x00000000 objc property  14      debugDescription

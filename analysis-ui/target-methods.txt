@@ -1,0 +1,63 @@
+
+## WPColorPickerManager
+0x405c 16476 pickColorForKey:fromVC: v32@0:8@16@24
+0x4264 16996 colorPickerViewControllerDidFinish: v24@0:8@16
+0x47ac 18348 colorPickerViewControllerDidSelectColor: v24@0:8@16
+
+## WCPulseSessionMgr
+0x4cb0 19632 setupDefaultGroups v16@0:8
+0x50f8 20728 activeGroupConfigs @16@0:8
+0x529c 21148 hiddenGroupConfigs @16@0:8
+0x5440 21568 saveConfigs v16@0:8
+0x54fc 21756 renameGroup:toName: v32@0:8@16@24
+0x56d0 22224 setGroup:visible: v28@0:8@16B24
+0x5994 22932 moveGroup:forward: v28@0:8@16B24
+0x5b78 23416 resetConfigs v16@0:8
+0x5be0 23520 reloadSessions v16@0:8
+0x6170 24944 rebuildFilteredSessions v16@0:8
+0x693c 26940 filterSessions:withGroupName:needTop: @36@0:8@16@24B32
+0x7b70 31600 groupConfigs @16@0:8
+0x7b78 31608 setGroupConfigs: v24@0:8@16
+0x7b84 31620 currentSelectGroup @16@0:8
+0x7b8c 31628 setCurrentSelectGroup: v24@0:8@16
+0x7bac 31660 filteredTopSessions @16@0:8
+0x7bb4 31668 setFilteredTopSessions: v24@0:8@16
+0x7bc0 31680 filteredNormalSessions @16@0:8
+0x7bc8 31688 setFilteredNormalSessions: v24@0:8@16
+
+## WPCustomGroupSelectVC
+0x7c48 31816 viewDidLoad v16@0:8
+0x808c 32908 setupHeaderView v16@0:8
+0x95e0 38368 segmentChanged: v24@0:8@16
+0x96bc 38588 filterData v16@0:8
+0x9970 39280 tableView:numberOfRowsInSection: q32@0:8@16q24
+0x99c0 39360 tableView:cellForRowAtIndexPath: @32@0:8@16@24
+0x9c68 40040 tableView:didSelectRowAtIndexPath: v32@0:8@16@24
+0x9f3c 40764 save v16@0:8
+0xa240 41536 scrollViewDidScroll: v24@0:8@16
+0xa2cc 41676 segmentControl @16@0:8
+0xa2dc 41692 setSegmentControl: v24@0:8@16
+0xa338 41784 groupContactsList @16@0:8
+0xa348 41800 setGroupContactsList: v24@0:8@16
+0xa380 41856 selectedWxids @16@0:8
+0xa390 41872 setSelectedWxids: v24@0:8@16
+0xa3a4 41892 currentSegmentIndex q16@0:8
+0xa3b4 41908 setCurrentSegmentIndex: v24@0:8q16
+
+## WPMaterialSelectVC
+0xa4ac 42156 viewDidLoad v16@0:8
+0xa9dc 43484 tableView:numberOfRowsInSection: q32@0:8@16q24
+0xaa2c 43564 tableView:cellForRowAtIndexPath: @32@0:8@16@24
+0xada4 44452 tableView:didSelectRowAtIndexPath: v32@0:8@16@24
+
+## WPSettingsTableProvider
+0xb284 45700 tableView:numberOfRowsInSection: q32@0:8@16q24
+0xb30c 45836 tableView:cellForRowAtIndexPath: @32@0:8@16@24
+0xc280 49792 tableView:heightForRowAtIndexPath: d32@0:8@16@24
+0xc28c 49804 tableView:trailingSwipeActionsConfigurationForRowAtIndexPath: @32@0:8@16@24
+0xd4a4 54436 tableView:leadingSwipeActionsConfigurationForRowAtIndexPath: @32@0:8@16@24
+0xdda0 56736 handleLongPress: v24@0:8@16
+0xe894 59540 onSelectDoneWithContacts: v24@0:8@16
+0xee0c 60940 onSelectCancel v16@0:8
+
+## category UIViewController(WPGroupUI)

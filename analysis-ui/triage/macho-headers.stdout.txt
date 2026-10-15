@@ -1,0 +1,631 @@
+/var/minis/workspace/fenzu_deb/root/var/jb/Library/MobileSubstrate/DynamicLibraries/fenzu.dylib:
+Mach header
+      magic cputype cpusubtype  caps    filetype ncmds sizeofcmds      flags
+MH_MAGIC_64   ARM64        ALL  0x00       DYLIB    29       4024   NOUNDEFS DYLDLINK TWOLEVEL NO_REEXPORTED_DYLIBS
+Load command 0
+      cmd LC_SEGMENT_64
+  cmdsize 1112
+  segname __TEXT
+   vmaddr 0x0000000000000000
+   vmsize 0x0000000000034000
+  fileoff 0
+ filesize 212992
+  maxprot r-x
+ initprot r-x
+   nsects 13
+    flags (none)
+Section
+  sectname __text
+   segname __TEXT
+      addr 0x0000000000004000
+      size 0x000000000001f12c
+    offset 16384
+     align 2^2 (4)
+    reloff 0
+    nreloc 0
+      type S_REGULAR
+attributes PURE_INSTRUCTIONS SOME_INSTRUCTIONS
+ reserved1 0
+ reserved2 0
+Section
+  sectname __stubs
+   segname __TEXT
+      addr 0x000000000002312c
+      size 0x000000000000024c
+    offset 143660
+     align 2^2 (4)
+    reloff 0
+    nreloc 0
+      type S_SYMBOL_STUBS
+attributes PURE_INSTRUCTIONS SOME_INSTRUCTIONS
+ reserved1 0 (index into indirect symbol table)
+ reserved2 12 (size of stubs)
+Section
+  sectname __objc_stubs
+   segname __TEXT
+      addr 0x0000000000023380
+      size 0x0000000000002de0
+    offset 144256
+     align 2^5 (32)
+    reloff 0
+    nreloc 0
+      type S_REGULAR
+attributes PURE_INSTRUCTIONS SOME_INSTRUCTIONS
+ reserved1 0
+ reserved2 0
+Section
+  sectname __init_offsets
+   segname __TEXT
+      addr 0x0000000000026160
+      size 0x0000000000000008
+    offset 156000
+     align 2^2 (4)
+    reloff 0
+    nreloc 0
+      type S_INIT_FUNC_OFFSETS
+attributes (none)
+ reserved1 0
+ reserved2 0
+Section
+  sectname __objc_methlist
+   segname __TEXT
+      addr 0x0000000000026168
+      size 0x0000000000000e20
+    offset 156008
+     align 2^3 (8)
+    reloff 0
+    nreloc 0
+      type S_REGULAR
+attributes (none)
+ reserved1 0
+ reserved2 0
+Section
+  sectname __gcc_except_tab
+   segname __TEXT
+      addr 0x0000000000026f88
+      size 0x00000000000058f4
+    offset 159624
+     align 2^2 (4)
+    reloff 0
+    nreloc 0
+      type S_REGULAR
+attributes (none)
+ reserved1 0
+ reserved2 0
+Section
+  sectname __const
+   segname __TEXT
+      addr 0x000000000002c880
+      size 0x0000000000000260
+    offset 182400
+     align 2^3 (8)
+    reloff 0
+    nreloc 0
+      type S_REGULAR
+attributes (none)
+ reserved1 0
+ reserved2 0
+Section
+  sectname __cstring
+   segname __TEXT
+      addr 0x000000000002cae0
+      size 0x0000000000000817
+    offset 183008
+     align 2^0 (1)
+    reloff 0
+    nreloc 0
+      type S_CSTRING_LITERALS
+attributes (none)
+ reserved1 0
+ reserved2 0
+Section
+  sectname __ustring
+   segname __TEXT
+      addr 0x000000000002d2f8
+      size 0x0000000000000408
+    offset 185080
+     align 2^1 (2)
+    reloff 0
+    nreloc 0
+      type S_REGULAR
+attributes (none)
+ reserved1 0
+ reserved2 0
+Section
+  sectname __objc_methname
+   segname __TEXT
+      addr 0x000000000002d700
+      size 0x00000000000037c4
+    offset 186112
+     align 2^0 (1)
+    reloff 0
+    nreloc 0
+      type S_CSTRING_LITERALS
+attributes (none)
+ reserved1 0
+ reserved2 0
+Section
+  sectname __objc_classname
+   segname __TEXT
+      addr 0x0000000000030ec4
+      size 0x0000000000000122
+    offset 200388
+     align 2^0 (1)
+    reloff 0
+    nreloc 0
+      type S_CSTRING_LITERALS
+attributes (none)
+ reserved1 0
+ reserved2 0
+Section
+  sectname __objc_methtype
+   segname __TEXT
+      addr 0x0000000000030fe6
+      size 0x0000000000000ccb
+    offset 200678
+     align 2^0 (1)
+    reloff 0
+    nreloc 0
+      type S_CSTRING_LITERALS
+attributes (none)
+ reserved1 0
+ reserved2 0
+Section
+  sectname __unwind_info
+   segname __TEXT
+      addr 0x0000000000031cb4
+      size 0x00000000000008e0
+    offset 203956
+     align 2^2 (4)
+    reloff 0
+    nreloc 0
+      type S_REGULAR
+attributes (none)
+ reserved1 0
+ reserved2 0
+Load command 1
+      cmd LC_SEGMENT_64
+  cmdsize 952
+  segname __DATA_CONST
+   vmaddr 0x0000000000034000
+   vmsize 0x0000000000004000
+  fileoff 212992
+ filesize 16384
+  maxprot rw-
+ initprot rw-
+   nsects 11
+    flags SG_READ_ONLY
+Section
+  sectname __got
+   segname __DATA_CONST
+      addr 0x0000000000034000
+      size 0x0000000000000238
+    offset 212992
+     align 2^3 (8)
+    reloff 0
+    nreloc 0
+      type S_NON_LAZY_SYMBOL_POINTERS
+attributes (none)
+ reserved1 49 (index into indirect symbol table)
+ reserved2 0
+Section
+  sectname __const
+   segname __DATA_CONST
+      addr 0x0000000000034238
+      size 0x0000000000000520
+    offset 213560
+     align 2^3 (8)
+    reloff 0
+    nreloc 0
+      type S_REGULAR
+attributes (none)
+ reserved1 0
+ reserved2 0
+Section
+  sectname __cfstring
+   segname __DATA_CONST
+      addr 0x0000000000034758
+      size 0x00000000000018a0
+    offset 214872
+     align 2^3 (8)
+    reloff 0
+    nreloc 0
+      type S_REGULAR
+attributes (none)
+ reserved1 0
+ reserved2 0
+Section
+  sectname __objc_classlist
+   segname __DATA_CONST
+      addr 0x0000000000035ff8
+      size 0x0000000000000028
+    offset 221176
+     align 2^3 (8)
+    reloff 0
+    nreloc 0
+      type S_REGULAR
+attributes NO_DEAD_STRIP
+ reserved1 0
+ reserved2 0
+Section
+  sectname __objc_catlist
+   segname __DATA_CONST
+      addr 0x0000000000036020
+      size 0x0000000000000008
+    offset 221216
+     align 2^3 (8)
+    reloff 0
+    nreloc 0
+      type S_REGULAR
+attributes NO_DEAD_STRIP
+ reserved1 0
+ reserved2 0
+Section
+  sectname __objc_protolist
+   segname __DATA_CONST
+      addr 0x0000000000036028
+      size 0x0000000000000038
+    offset 221224
+     align 2^3 (8)
+    reloff 0
+    nreloc 0
+      type S_REGULAR
+attributes (none)
+ reserved1 0
+ reserved2 0
+Section
+  sectname __objc_imageinfo
+   segname __DATA_CONST
+      addr 0x0000000000036060
+      size 0x0000000000000008
+    offset 221280
+     align 2^2 (4)
+    reloff 0
+    nreloc 0
+      type S_REGULAR
+attributes (none)
+ reserved1 0
+ reserved2 0
+Section
+  sectname __objc_arraydata
+   segname __DATA_CONST
+      addr 0x0000000000036068
+      size 0x0000000000000168
+    offset 221288
+     align 2^3 (8)
+    reloff 0
+    nreloc 0
+      type S_REGULAR
+attributes (none)
+ reserved1 0
+ reserved2 0
+Section
+  sectname __objc_dictobj
+   segname __DATA_CONST
+      addr 0x00000000000361d0
+      size 0x00000000000000c8
+    offset 221648
+     align 2^3 (8)
+    reloff 0
+    nreloc 0
+      type S_REGULAR
+attributes (none)
+ reserved1 0
+ reserved2 0
+Section
+  sectname __objc_arrayobj
+   segname __DATA_CONST
+      addr 0x0000000000036298
+      size 0x0000000000000078
+    offset 221848
+     align 2^3 (8)
+    reloff 0
+    nreloc 0
+      type S_REGULAR
+attributes (none)
+ reserved1 0
+ reserved2 0
+Section
+  sectname __objc_intobj
+   segname __DATA_CONST
+      addr 0x0000000000036310
+      size 0x0000000000000018
+    offset 221968
+     align 2^3 (8)
+    reloff 0
+    nreloc 0
+      type S_REGULAR
+attributes (none)
+ reserved1 0
+ reserved2 0
+Load command 2
+      cmd LC_SEGMENT_64
+  cmdsize 712
+  segname __DATA
+   vmaddr 0x0000000000038000
+   vmsize 0x0000000000004000
+  fileoff 229376
+ filesize 16384
+  maxprot rw-
+ initprot rw-
+   nsects 8
+    flags (none)
+Section
+  sectname __objc_const
+   segname __DATA
+      addr 0x0000000000038000
+      size 0x0000000000000ee0
+    offset 229376
+     align 2^3 (8)
+    reloff 0
+    nreloc 0
+      type S_REGULAR
+attributes (none)
+ reserved1 0
+ reserved2 0
+Section
+  sectname __objc_selrefs
+   segname __DATA
+      addr 0x0000000000038ee0
+      size 0x00000000000011f0
+    offset 233184
+     align 2^3 (8)
+    reloff 0
+    nreloc 0
+      type S_LITERAL_POINTERS
+attributes NO_DEAD_STRIP
+ reserved1 0
+ reserved2 0
+Section
+  sectname __objc_classrefs
+   segname __DATA
+      addr 0x000000000003a0d0
+      size 0x00000000000001c0
+    offset 237776
+     align 2^3 (8)
+    reloff 0
+    nreloc 0
+      type S_REGULAR
+attributes NO_DEAD_STRIP
+ reserved1 0
+ reserved2 0
+Section
+  sectname __objc_superrefs
+   segname __DATA
+      addr 0x000000000003a290
+      size 0x0000000000000010
+    offset 238224
+     align 2^3 (8)
+    reloff 0
+    nreloc 0
+      type S_REGULAR
+attributes NO_DEAD_STRIP
+ reserved1 0
+ reserved2 0
+Section
+  sectname __objc_ivar
+   segname __DATA
+      addr 0x000000000003a2a0
+      size 0x000000000000006c
+    offset 238240
+     align 2^2 (4)
+    reloff 0
+    nreloc 0
+      type S_REGULAR
+attributes (none)
+ reserved1 0
+ reserved2 0
+Section
+  sectname __objc_data
+   segname __DATA
+      addr 0x000000000003a310
+      size 0x0000000000000190
+    offset 238352
+     align 2^3 (8)
+    reloff 0
+    nreloc 0
+      type S_REGULAR
+attributes (none)
+ reserved1 0
+ reserved2 0
+Section
+  sectname __data
+   segname __DATA
+      addr 0x000000000003a4a0
+      size 0x00000000000002b0
+    offset 238752
+     align 2^3 (8)
+    reloff 0
+    nreloc 0
+      type S_REGULAR
+attributes (none)
+ reserved1 0
+ reserved2 0
+Section
+  sectname __bss
+   segname __DATA
+      addr 0x000000000003a750
+      size 0x0000000000000103
+    offset 0
+     align 2^3 (8)
+    reloff 0
+    nreloc 0
+      type S_ZEROFILL
+attributes (none)
+ reserved1 0
+ reserved2 0
+Load command 3
+      cmd LC_SEGMENT_64
+  cmdsize 72
+  segname __LINKEDIT
+   vmaddr 0x000000000003c000
+   vmsize 0x0000000000004000
+  fileoff 245760
+ filesize 15248
+  maxprot r--
+ initprot r--
+   nsects 0
+    flags (none)
+Load command 4
+          cmd LC_ID_DYLIB
+      cmdsize 48
+         name @rpath/fenzu.dylib (offset 24)
+   time stamp 1 Thu Jan  1 08:00:01 1970
+      current version 0.0.0
+compatibility version 0.0.0
+Load command 5
+      cmd LC_DYLD_CHAINED_FIXUPS
+  cmdsize 16
+  dataoff 245760
+ datasize 4072
+Load command 6
+      cmd LC_DYLD_EXPORTS_TRIE
+  cmdsize 16
+  dataoff 249832
+ datasize 336
+Load command 7
+     cmd LC_SYMTAB
+ cmdsize 24
+  symoff 250600
+   nsyms 143
+  stroff 253368
+ strsize 3824
+Load command 8
+            cmd LC_DYSYMTAB
+        cmdsize 80
+      ilocalsym 0
+      nlocalsym 1
+     iextdefsym 1
+     nextdefsym 10
+      iundefsym 11
+      nundefsym 132
+         tocoff 0
+           ntoc 0
+      modtaboff 0
+        nmodtab 0
+   extrefsymoff 0
+    nextrefsyms 0
+ indirectsymoff 252888
+  nindirectsyms 120
+      extreloff 0
+        nextrel 0
+      locreloff 0
+        nlocrel 0
+Load command 9
+     cmd LC_UUID
+ cmdsize 24
+    uuid EC9FFA7F-FEFE-33BC-87A8-58E89D4402EA
+Load command 10
+       cmd LC_BUILD_VERSION
+   cmdsize 32
+  platform ios
+       sdk 26.2
+     minos 15.0
+    ntools 1
+      tool ld
+   version 1230.1
+Load command 11
+      cmd LC_SOURCE_VERSION
+  cmdsize 16
+  version 0.0
+Load command 12
+          cmd LC_ENCRYPTION_INFO_64
+      cmdsize 24
+     cryptoff 16384
+    cryptsize 196608
+      cryptid 0
+          pad 0
+Load command 13
+          cmd LC_LOAD_DYLIB
+      cmdsize 56
+         name /usr/lib/libobjc.A.dylib (offset 24)
+   time stamp 2 Thu Jan  1 08:00:02 1970
+      current version 228.0.0
+compatibility version 1.0.0
+Load command 14
+          cmd LC_LOAD_DYLIB
+      cmdsize 88
+         name /System/Library/Frameworks/Foundation.framework/Foundation (offset 24)
+   time stamp 2 Thu Jan  1 08:00:02 1970
+      current version 4201.0.0
+compatibility version 300.0.0
+Load command 15
+          cmd LC_LOAD_DYLIB
+      cmdsize 96
+         name /System/Library/Frameworks/CoreFoundation.framework/CoreFoundation (offset 24)
+   time stamp 2 Thu Jan  1 08:00:02 1970
+      current version 4201.0.0
+compatibility version 150.0.0
+Load command 16
+          cmd LC_LOAD_DYLIB
+      cmdsize 48
+         name /usr/lib/libc++.1.dylib (offset 24)
+   time stamp 2 Thu Jan  1 08:00:02 1970
+      current version 2000.67.0
+compatibility version 1.0.0
+Load command 17
+          cmd LC_LOAD_DYLIB
+      cmdsize 56
+         name /usr/lib/libSystem.B.dylib (offset 24)
+   time stamp 2 Thu Jan  1 08:00:02 1970
+      current version 1356.0.0
+compatibility version 1.0.0
+Load command 18
+          cmd LC_LOAD_DYLIB
+      cmdsize 88
+         name /System/Library/Frameworks/CoreGraphics.framework/CoreGraphics (offset 24)
+   time stamp 2 Thu Jan  1 08:00:02 1970
+      current version 1965.2.3
+compatibility version 64.0.0
+Load command 19
+          cmd LC_LOAD_DYLIB
+      cmdsize 88
+         name /System/Library/Frameworks/QuartzCore.framework/QuartzCore (offset 24)
+   time stamp 2 Thu Jan  1 08:00:02 1970
+      current version 1193.47.1
+compatibility version 1.2.0
+Load command 20
+          cmd LC_LOAD_DYLIB
+      cmdsize 80
+         name /System/Library/Frameworks/UIKit.framework/UIKit (offset 24)
+   time stamp 2 Thu Jan  1 08:00:02 1970
+      current version 9126.2.4
+compatibility version 1.0.0
+Load command 21
+          cmd LC_LOAD_DYLIB
+      cmdsize 72
+         name @rpath/CydiaSubstrate.framework/CydiaSubstrate (offset 24)
+   time stamp 2 Thu Jan  1 08:00:02 1970
+      current version 0.0.0
+compatibility version 0.0.0
+Load command 22
+          cmd LC_RPATH
+      cmdsize 40
+         path /var/jb/Library/Frameworks (offset 12)
+Load command 23
+          cmd LC_RPATH
+      cmdsize 32
+         path /var/jb/usr/lib (offset 12)
+Load command 24
+          cmd LC_RPATH
+      cmdsize 56
+         path @loader_path/.jbroot/Library/Frameworks (offset 12)
+Load command 25
+          cmd LC_RPATH
+      cmdsize 48
+         path @loader_path/.jbroot/usr/lib (offset 12)
+Load command 26
+      cmd LC_FUNCTION_STARTS
+  cmdsize 16
+  dataoff 250168
+ datasize 432
+Load command 27
+      cmd LC_DATA_IN_CODE
+  cmdsize 16
+  dataoff 250600
+ datasize 0
+Load command 28
+      cmd LC_CODE_SIGNATURE
+  cmdsize 16
+  dataoff 257200
+ datasize 3808
