@@ -48,4 +48,5 @@
 
 FOUNDATION_EXPORT void FZInstallUI(UIViewController *controller);
 FOUNDATION_EXPORT void FZRefreshUI(UIViewController *controller);
+FOUNDATION_EXPORT void FZInstallSettingsEntry(UIViewController *controller);
 FOUNDATION_EXPORT UIViewController *FZTopViewController(void);
