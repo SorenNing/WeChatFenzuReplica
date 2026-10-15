@@ -38,7 +38,6 @@ static NSInteger FZCallInteger(id self, SEL sel, NSInteger arg, BOOL hasArg) {
     return hasArg ? ((NSInteger(*)(id,SEL,NSInteger))imp)(self,sel,arg) : ((NSInteger(*)(id,SEL))imp)(self,sel);
 }
 static void FZCallVoid(id self, SEL sel) { IMP imp=FZOriginalFor(self,sel); if (imp) ((void(*)(id,SEL))imp)(self,sel); }
-static void FZCallBoolVoid(id self, SEL sel, BOOL value) { IMP imp=FZOriginalFor(self,sel); if (imp) ((void(*)(id,SEL,BOOL))imp)(self,sel,value); }
 
 static NSMutableDictionary *FZState(id logic) {
     if (!gStates) gStates=[NSMapTable weakToStrongObjectsMapTable];
