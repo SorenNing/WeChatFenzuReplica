@@ -5,6 +5,8 @@
 static UIColor *FZDefaultTop(void){return [UIColor colorWithWhite:0.97 alpha:0.92];}
 static UIColor *FZDefaultText(void){return UIColor.labelColor;}
 static UIColor *FZDefaultShadow(void){return [UIColor colorWithWhite:0 alpha:0.18];}
+static id FZMakeSwipeAction(NSInteger style, NSString *title, id handler){Class c=objc_getClass("UIContextualAction");if(!c)return nil;id(*send)(id,SEL,NSInteger,id,id)=(id(*)(id,SEL,NSInteger,id,id))objc_msgSend;return send([c alloc],sel_registerName("initWithStyle:title:handler:"),style,title,handler);}
+static void FZPresentTextEditor(UIViewController *owner, NSString *title, NSString *value, void (^done)(NSString *)){UIAlertController*a=[UIAlertController alertControllerWithTitle:title message:nil preferredStyle:UIAlertControllerStyleAlert];[a addTextFieldWithConfigurationHandler:^(UITextField*t){t.text=value?:@"";}];[a addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];[a addAction:[UIAlertAction actionWithTitle:@"保存" style:UIAlertActionStyleDefault handler:^(__unused UIAlertAction*x){done(a.textFields.firstObject.text?:@"");}]];[owner presentViewController:a animated:YES completion:nil];}
 
 @implementation WPColorPickerManager { NSString *_key; __weak UIViewController *_parent; }
 + (instancetype)shared { static WPColorPickerManager *x; static dispatch_once_t once; dispatch_once(&once, ^{x=[self new];}); return x; }
@@ -52,6 +54,8 @@ static UIColor *FZDefaultShadow(void){return [UIColor colorWithWhite:0 alpha:0.1
 - (UITableViewCell*)tableView:(UITableView*)t cellForRowAtIndexPath:(NSIndexPath*)p{NSDictionary*g=FZAllGroups()[p.row];UITableViewCell*c=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:nil];c.textLabel.text=g[@"name"];c.detailTextLabel.text=[g[@"visible"]boolValue]?@"显示":@"隐藏";return c;}
 - (CGFloat)tableView:(UITableView*)t heightForRowAtIndexPath:(NSIndexPath*)p{return 52;}
 - (void)tableView:(UITableView*)t didSelectRowAtIndexPath:(NSIndexPath*)p{NSDictionary*g=FZAllGroups()[p.row];FZSetGroupVisible(g[@"name"],![g[@"visible"]boolValue]);[t reloadData];}
+- (UISwipeActionsConfiguration *)tableView:(UITableView *)t trailingSwipeActionsConfigurationForRowAtIndexPath:(NSIndexPath *)p{NSDictionary*g=FZAllGroups()[p.row];if(![g[@"isCustom"]boolValue])return nil;id del=FZMakeSwipeAction(0,@"删除",^(__unused id a,__unused id v,void(^done)(BOOL)){FZDeleteGroup(g[@"name"]);[t reloadData];done(YES);});return del?[UISwipeActionsConfiguration configurationWithActions:@[del]]:nil;}
+- (UISwipeActionsConfiguration *)tableView:(UITableView *)t leadingSwipeActionsConfigurationForRowAtIndexPath:(NSIndexPath *)p{NSDictionary*g=FZAllGroups()[p.row];id rename=FZMakeSwipeAction(1,@"重命名",^(__unused id a,__unused id v,void(^done)(BOOL)){UIViewController*o=t.window.rootViewController;while(o.presentedViewController)o=o.presentedViewController;FZPresentTextEditor(o,@"重命名分组",g[@"name"],^(NSString*n){FZRenameGroup(g[@"name"],n);[t reloadData];});done(YES);});return rename?[UISwipeActionsConfiguration configurationWithActions:@[rename]]:nil;}
 @end
 
 @implementation WPCustomSettingsPanel
