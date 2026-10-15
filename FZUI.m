@@ -67,4 +67,14 @@ static UIColor *FZDefaultShadow(void){return [UIColor colorWithWhite:0 alpha:0.1
 
 void FZRefreshUI(UIViewController*c){if(!c)return;for(UIView*v in c.view.subviews)if([v isKindOfClass:WPGroupHeaderView.class]){((WPGroupHeaderView*)v).selectedGroup=FZCurrentGroup();[((WPGroupHeaderView*)v)reloadGroups];}for(UIView*v in c.view.subviews)if([v isKindOfClass:WPSideDockView.class]){((WPSideDockView*)v).selectedGroup=FZCurrentGroup();[((WPSideDockView*)v)reloadGroups];}}
 void FZInstallUI(UIViewController*c){if(!c||FZBool(@"WPPulse_HideTopBar",NO))return;UIView*existing=nil;for(UIView*v in c.view.subviews)if([v isKindOfClass:WPGroupHeaderView.class])existing=v;if(!existing){WPGroupHeaderView*h=[[WPGroupHeaderView alloc]initWithFrame:CGRectMake(12,0,c.view.bounds.size.width-24,42)];h.owner=c;h.selectedGroup=FZCurrentGroup();[c.view addSubview:h];[h reloadGroups];objc_setAssociatedObject(c,@"FZHeader",h,OBJC_ASSOCIATION_RETAIN_NONATOMIC);UIPanGestureRecognizer*p=[[UIPanGestureRecognizer alloc]initWithTarget:c action:NSSelectorFromString(@"fz_handlePan:")];[c.view addGestureRecognizer:p];UILongPressGestureRecognizer*l=[[UILongPressGestureRecognizer alloc]initWithTarget:c action:NSSelectorFromString(@"fz_handleLongPress:")];[c.view addGestureRecognizer:l];}if(!FZBool(@"WPPulse_HideSideDock",YES)){WPSideDockView*d=[[WPSideDockView alloc]initWithFrame:CGRectMake(0,220,72,MIN(350,c.view.bounds.size.height-260))];d.owner=c;d.selectedGroup=FZCurrentGroup();[c.view addSubview:d];[d reloadGroups];objc_setAssociatedObject(c,@"FZDock",d,OBJC_ASSOCIATION_RETAIN_NONATOMIC);}}
+static void FZOpenSettings(id self,SEL _cmd);
+void FZInstallSettingsEntry(UIViewController *controller){
+    if(!controller)return;
+    UIBarButtonItem *item=[[UIBarButtonItem alloc]initWithTitle:@"分组设置" style:UIBarButtonItemStylePlain target:controller action:NSSelectorFromString(@"fz_openSettings")];
+    if(![controller respondsToSelector:NSSelectorFromString(@"fz_openSettings")]){
+        class_addMethod(object_getClass(controller),NSSelectorFromString(@"fz_openSettings"),(IMP)FZOpenSettings,"v16@0:8");
+    }
+    controller.navigationItem.rightBarButtonItem=item;
+}
+static void FZOpenSettings(id self,SEL _cmd){UIViewController *c=(UIViewController *)self;[c.navigationController pushViewController:[WPCustomSettingsPanel new] animated:YES];}
 UIViewController *FZTopViewController(void){UIWindow*w=UIApplication.sharedApplication.keyWindow;UIViewController*c=w.rootViewController;while(c.presentedViewController)c=c.presentedViewController;while(c.childViewControllers.count)c=c.childViewControllers.lastObject;return c;}
