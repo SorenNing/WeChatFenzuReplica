@@ -19,7 +19,7 @@ static IMP FZOriginalFor(id object, SEL sel) {
     for (NSInteger i=(NSInteger)gOriginalCount-1; i>=0; --i) {
         if (gOriginals[i].sel != sel) continue;
         Class c=gOriginals[i].cls;
-        if (actual==c || (actual && c && class_isSubclassOfClass(actual,c))) return gOriginals[i].original;
+        BOOL derived=NO; for(Class p=actual;p;p=class_getSuperclass(p)) if(p==c){derived=YES;break;} if(actual==c || derived) return gOriginals[i].original;
     }
     return NULL;
 }
@@ -103,7 +103,7 @@ static id FZManagerItem(id self, SEL cmd, NSInteger index) {
 }
 static void FZManagerReload(id self, SEL cmd) { FZCallVoid(self,cmd); for(id logic in gStates){ NSMutableDictionary*s=[gStates objectForKey:logic];s[@"valid"]=@NO; } FZRefreshAll(); }
 
-static void FZConfigChanged(__unused NSNotification *note) { for(id logic in gStates){NSMutableDictionary*s=[gStates objectForKey:logic];s[@"group"]=FZCurrentGroup();s[@"valid"]=@NO;} FZRefreshAll(); }
+static void FZApplyConfigChanged(__unused NSNotification *note) { for(id logic in gStates){NSMutableDictionary*s=[gStates objectForKey:logic];s[@"group"]=FZCurrentGroup();s[@"valid"]=@NO;} FZRefreshAll(); }
 static void FZAppear(id self, SEL cmd, BOOL animated) { IMP imp=FZOriginalFor(self,cmd); if(imp)((void(*)(id,SEL,BOOL))imp)(self,cmd,animated); FZInstallUI((UIViewController *)self); }
 static void FZLoad(id self, SEL cmd) { FZCallVoid(self,cmd); dispatch_async(dispatch_get_main_queue(),^{FZInstallUI((UIViewController *)self);}); }
 static void FZLayout(id self, SEL cmd) { FZCallVoid(self,cmd); FZInstallUI((UIViewController *)self); }
@@ -114,7 +114,7 @@ static void FZPan(id self, SEL cmd, UIPanGestureRecognizer *gesture) {
 static void FZLong(id self, SEL cmd, UILongPressGestureRecognizer *gesture) { if(gesture.state==UIGestureRecognizerStateBegan){UIViewController*c=(UIViewController*)self;[c.navigationController pushViewController:[WPCustomSettingsPanel new] animated:YES];} }
 static void FZAddGestureMethods(Class cls){if(!cls)return;class_addMethod(cls,sel_registerName("fz_handlePan:"),(IMP)FZPan,"v24@0:8@");class_addMethod(cls,sel_registerName("fz_handleLongPress:"),(IMP)FZLong,"v24@0:8@");}
 void FZRefreshAll(void){dispatch_async(dispatch_get_main_queue(),^{UIViewController*c=FZTopViewController();FZRefreshUI(c);[c.view setNeedsLayout];});}
-void FZInstallHooks(void){if(gInstalled)return;gInstalled=YES;gStates=[NSMapTable weakToStrongObjectsMapTable];NSNotificationCenter*n=[NSNotificationCenter defaultCenter];[n addObserverForName:FZGroupChanged object:nil queue:NSOperationQueue.mainQueue usingBlock:^(__unused NSNotification*x){FZConfigChanged(x);}];[n addObserverForName:FZConfigChanged object:nil queue:NSOperationQueue.mainQueue usingBlock:^(__unused NSNotification*x){FZConfigChanged(x);}];
+void FZInstallHooks(void){if(gInstalled)return;gInstalled=YES;gStates=[NSMapTable weakToStrongObjectsMapTable];NSNotificationCenter*n=[NSNotificationCenter defaultCenter];[n addObserverForName:FZGroupChanged object:nil queue:NSOperationQueue.mainQueue usingBlock:^(__unused NSNotification*x){FZApplyConfigChanged(x);}];[n addObserverForName:FZConfigChanged object:nil queue:NSOperationQueue.mainQueue usingBlock:^(__unused NSNotification*x){FZApplyConfigChanged(x);}];
     Class logic=objc_getClass("MainFrameLogicController");FZHook(logic,@selector(getSessionCountForSection:),(IMP)FZLogicCount);FZHook(logic,@selector(getSessionInfoAtIndexPath:),(IMP)FZLogicInfo);FZHook(logic,@selector(getSessionBaseInfoAtIndexPath:),(IMP)FZLogicBase);FZHook(logic,@selector(getCellDataAtIndexPath:),(IMP)FZLogicCell);FZHook(logic,@selector(indexOfSessionUserName:inSection:),(IMP)FZLogicReverse);
     for(NSString *name in @[@"MainSessionMgr", @"MMNewSessionMgr", @"SessionMgr"]) { Class c=objc_getClass(name.UTF8String);FZHook(c,@selector(visibleTopSessionCount),(IMP)FZManagerCount);FZHook(c,@selector(visibleNormalSessionCount),(IMP)FZManagerCount);FZHook(c,@selector(getTopSessionAtIndex:),(IMP)FZManagerItem);FZHook(c,@selector(getNormalSessionAtIndex:),(IMP)FZManagerItem);FZHook(c,@selector(GetSessionCount),(IMP)FZManagerCount);FZHook(c,@selector(GetSessionAtIndex:),(IMP)FZManagerItem);FZHook(c,@selector(reloadSessions),(IMP)FZManagerReload); }
     Class home=objc_getClass("NewMainFrameViewController");FZAddGestureMethods(home);FZHook(home,@selector(viewDidLoad),(IMP)FZLoad);FZHook(home,@selector(viewDidAppear:),(IMP)FZAppear);FZHook(home,@selector(viewDidLayoutSubviews),(IMP)FZLayout);
