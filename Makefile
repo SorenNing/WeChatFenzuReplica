@@ -6,5 +6,5 @@ include $(THEOS)/makefiles/common.mk
 TWEAK_NAME = FenzuReplica
 FenzuReplica_FILES = FZConfig.m FZUI.m FZCore.m FZSession.m
 FenzuReplica_FRAMEWORKS = UIKit QuartzCore CoreGraphics
-FenzuReplica_CFLAGS = -fobjc-arc -Wno-deprecated-declarations
+FenzuReplica_CFLAGS = -fobjc-arc -Wno-deprecated-declarations -Wno-arc-unsafe-retained-assign
 include $(THEOS_MAKE_PATH)/tweak.mk
