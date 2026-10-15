@@ -12,6 +12,14 @@ static NSString *gCurrent;
 static NSMutableDictionary *FZDefault(NSString *name, NSString *type) {
     return [@{@"id": name, @"name": name, @"visible": @YES, @"isCustom": @NO, @"members": @[], @"type": type} mutableCopy];
 }
+static NSString *FZTypeForName(NSString *name){
+    NSDictionary *map=@{@"全部":@"all",@"未读":@"unread",@"好友":@"friends",@"群聊":@"groups",@"公众号":@"official"};
+    return map[name];
+}
+static void FZEnsureBuiltins(void){
+    NSArray *defaults=@[FZDefault(@"全部",@"all"),FZDefault(@"未读",@"unread"),FZDefault(@"好友",@"friends"),FZDefault(@"群聊",@"groups"),FZDefault(@"公众号",@"official")];
+    for(NSMutableDictionary *d in defaults){BOOL found=NO;for(NSMutableDictionary *g in gGroups)if([g[@"name"] isEqual:d[@"name"]]){if(!g[@"type"]||[g[@"type"] isEqual:@"all"])[g setObject:d[@"type"] forKey:@"type"];found=YES;break;}if(!found)[gGroups addObject:d];}
+}
 static void FZLoad(void) {
     if (gGroups) return;
     gGroups = [NSMutableArray array];
@@ -23,13 +31,14 @@ static void FZLoad(void) {
         g[@"visible"] = @([g[@"visible"] boolValue]);
         g[@"isCustom"] = @([g[@"isCustom"] boolValue]);
         g[@"members"] = [g[@"members"] isKindOfClass:NSArray.class] ? [g[@"members"] copy] : @[];
-        g[@"type"] = g[@"type"] ?: ([g[@"isCustom"] boolValue] ? @"custom" : @"all");
+        g[@"type"] = g[@"type"] ?: ([g[@"isCustom"] boolValue] ? @"custom" : (FZTypeForName(g[@"name"]) ?: @"all"));
         [gGroups addObject:g];
     }
     if (!gGroups.count) [gGroups addObjectsFromArray:@[
         FZDefault(@"全部", @"all"), FZDefault(@"未读", @"unread"),
         FZDefault(@"好友", @"friends"), FZDefault(@"群聊", @"groups"),
         FZDefault(@"公众号", @"official")]];
+    FZEnsureBuiltins();
     NSMutableSet *names = [NSMutableSet set];
     NSIndexSet *duplicates = [gGroups indexesOfObjectsPassingTest:^BOOL(NSDictionary *g, NSUInteger idx, BOOL *stop) {
         if ([names containsObject:g[@"name"]]) return YES;
@@ -72,4 +81,5 @@ NSArray<NSString *> *FZMaterials(void){NSString*d=[NSHomeDirectory() stringByApp
 static NSArray *gRuntimeSessions;
 void FZSetRuntimeSessions(NSArray *sessions){gRuntimeSessions=[sessions copy];}
 NSUInteger FZGroupUnreadCount(NSString *name){NSUInteger n=0;for(id s in gRuntimeSessions)if(FZMatches(s,name))n+=FZUnread(s);return n;}
+void FZResetGroups(void){gGroups=nil;gCurrent=nil;[[NSUserDefaults standardUserDefaults]removeObjectForKey:kGroups];[[NSUserDefaults standardUserDefaults]removeObjectForKey:kCurrent];FZLoad();FZPost();}
 void FZResetAppearance(void){for(NSString*k in @[@"WPPulse_BgColor",@"WPPulse_ShadowColor",@"WPPulse_TopBgColor",@"WPPulse_TopTextColor",@"WPPulse_GlobalBadgeMaterial",@"WPPulse_CustomDockMaterial"])[[NSUserDefaults standardUserDefaults]removeObjectForKey:k];[[NSNotificationCenter defaultCenter]postNotificationName:FZConfigChanged object:nil];}
