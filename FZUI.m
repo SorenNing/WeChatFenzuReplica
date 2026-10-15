@@ -52,10 +52,13 @@ static void FZPresentTextEditor(UIViewController *owner, NSString *title, NSStri
 @end
 
 @implementation WPSettingsTableProvider
+- (void)toggleEditing:(UIBarButtonItem *)item{self.tableView.editing=!self.tableView.editing;}
 - (NSInteger)tableView:(UITableView*)t numberOfRowsInSection:(NSInteger)s{return FZAllGroups().count;}
 - (UITableViewCell*)tableView:(UITableView*)t cellForRowAtIndexPath:(NSIndexPath*)p{NSDictionary*g=FZAllGroups()[p.row];UITableViewCell*c=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:nil];c.textLabel.text=g[@"name"];c.detailTextLabel.text=[g[@"visible"]boolValue]?@"显示":@"隐藏";return c;}
 - (CGFloat)tableView:(UITableView*)t heightForRowAtIndexPath:(NSIndexPath*)p{return 52;}
-- (void)tableView:(UITableView*)t didSelectRowAtIndexPath:(NSIndexPath*)p{NSDictionary*g=FZAllGroups()[p.row];FZSetGroupVisible(g[@"name"],![g[@"visible"]boolValue]);[t reloadData];}
+- (void)tableView:(UITableView*)t didSelectRowAtIndexPath:(NSIndexPath*)p{NSDictionary*g=FZAllGroups()[p.row];if([g[@"isCustom"]boolValue]){WPCustomGroupSelectVC*v=[WPCustomGroupSelectVC new];v.typeId=g[@"name"];v.selectedWxids=[NSMutableSet setWithArray:FZMembers(g[@"name"])];UIViewController*o=t.window.rootViewController;while(o.presentedViewController)o=o.presentedViewController;[o.navigationController pushViewController:v animated:YES];}else{FZSetGroupVisible(g[@"name"],[g[@"visible"]boolValue]);[t reloadData];}}
+- (BOOL)tableView:(UITableView*)t canMoveRowAtIndexPath:(NSIndexPath*)p{return YES;}
+- (void)tableView:(UITableView*)t moveRowAtIndexPath:(NSIndexPath*)from toIndexPath:(NSIndexPath*)to{NSMutableArray*a=[FZAllGroups() mutableCopy];NSDictionary*g=a[from.row];[a removeObjectAtIndex:from.row];[a insertObject:g atIndex:to.row];FZSaveGroups(a);[t reloadData];}
 - (UISwipeActionsConfiguration *)tableView:(UITableView *)t trailingSwipeActionsConfigurationForRowAtIndexPath:(NSIndexPath *)p{NSDictionary*g=FZAllGroups()[p.row];if(![g[@"isCustom"]boolValue])return nil;id del=FZMakeSwipeAction(0,@"删除",^(__unused id a,__unused id v,void(^done)(BOOL)){FZDeleteGroup(g[@"name"]);[t reloadData];done(YES);});return del?[UISwipeActionsConfiguration configurationWithActions:@[del]]:nil;}
 - (UISwipeActionsConfiguration *)tableView:(UITableView *)t leadingSwipeActionsConfigurationForRowAtIndexPath:(NSIndexPath *)p{NSDictionary*g=FZAllGroups()[p.row];id rename=FZMakeSwipeAction(1,@"重命名",^(__unused id a,__unused id v,void(^done)(BOOL)){UIViewController*o=t.window.rootViewController;while(o.presentedViewController)o=o.presentedViewController;FZPresentTextEditor(o,@"重命名分组",g[@"name"],^(NSString*n){FZRenameGroup(g[@"name"],n);[t reloadData];});done(YES);});return rename?[UISwipeActionsConfiguration configurationWithActions:@[rename]]:nil;}
 @end

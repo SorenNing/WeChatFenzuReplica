@@ -20,7 +20,7 @@
 - (void)renameGroup:(NSString *)group toName:(NSString *)name { FZRenameGroup(group,name);[self setupDefaultGroups]; }
 - (void)setGroup:(NSString *)group visible:(BOOL)visible { FZSetGroupVisible(group,visible);[self setupDefaultGroups]; }
 - (void)moveGroup:(NSString *)group forward:(BOOL)forward { FZMoveGroup(group,forward);[self setupDefaultGroups]; }
-- (void)resetConfigs { [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"WPGroupConfigs_v2"];[[NSUserDefaults standardUserDefaults]removeObjectForKey:@"WPPulse_LastGroup"];[self setupDefaultGroups]; }
+- (void)resetConfigs { FZResetGroups(); [self setupDefaultGroups]; }
 - (void)reloadSessions { [self rebuildFilteredSessions]; }
 - (void)rebuildFilteredSessions { NSMutableArray*top=[NSMutableArray array],*normal=[NSMutableArray array];for(id s in _allSessions){if(FZMatches(s,_currentSelectGroup)){[normal addObject:s];}}_filteredTopSessions=top;_filteredNormalSessions=normal; }
 - (NSInteger)getUnreadForTypeId:(NSString *)typeId { NSInteger n=0;for(id s in _allSessions)if(FZMatches(s,typeId))n+=(NSInteger)FZUnread(s);return n; }
