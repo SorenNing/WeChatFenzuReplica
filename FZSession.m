@@ -1,6 +1,14 @@
 #import "FZCore.h"
 #import "FZConfig.h"
 
+static BOOL FZSessionIsTop(id session) {
+    for (NSString *key in @[@"m_bIsTop", @"isTop", @"bIsTop", @"top"]) {
+        @try { id value=[session valueForKey:key]; if (value) return [value boolValue]; }
+        @catch (__unused NSException *e) {}
+    }
+    return NO;
+}
+
 @implementation WCPulseSessionMgr {
     NSMutableArray *_groupConfigs;
     NSString *_currentSelectGroup;
@@ -22,7 +30,7 @@
 - (void)moveGroup:(NSString *)group forward:(BOOL)forward { FZMoveGroup(group,forward);[self setupDefaultGroups]; }
 - (void)resetConfigs { FZResetGroups(); [self setupDefaultGroups]; }
 - (void)reloadSessions { [self rebuildFilteredSessions]; }
-- (void)rebuildFilteredSessions { NSMutableArray*top=[NSMutableArray array],*normal=[NSMutableArray array];for(id s in _allSessions){if(FZMatches(s,_currentSelectGroup)){[normal addObject:s];}}_filteredTopSessions=top;_filteredNormalSessions=normal; }
+- (void)rebuildFilteredSessions { NSMutableArray*top=[NSMutableArray array],*normal=[NSMutableArray array];for(id s in _allSessions){if(!FZMatches(s,_currentSelectGroup))continue;if(FZSessionIsTop(s))[top addObject:s];else[normal addObject:s];}_filteredTopSessions=[top copy];_filteredNormalSessions=[normal copy]; }
 - (NSInteger)getUnreadForTypeId:(NSString *)typeId { NSInteger n=0;for(id s in _allSessions)if(FZMatches(s,typeId))n+=(NSInteger)FZUnread(s);return n; }
 - (NSInteger)extractUnreadFromSession:(id)session { return (NSInteger)FZUnread(session); }
 - (NSArray *)filterSessions:(NSArray *)sessions withGroupName:(NSString *)name needTop:(BOOL)top { NSMutableArray*a=[NSMutableArray array];for(id s in sessions)if(FZMatches(s,name))[a addObject:s];return a; }

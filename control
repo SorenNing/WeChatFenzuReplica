@@ -2,7 +2,7 @@ Package: com.soren.fenzureplica
 Name: Fenzu Full Replica
 Depends: mobilesubstrate (>= 0.9.5000), firmware (>= 15.0)
 Architecture: iphoneos-arm64e
-Version: 0.1.0
+Version: 0.1.1
 Description: Clean-room replica of com.abc.fenzu 0.0.2 grouping features
 Maintainer: Soren
 Author: Soren

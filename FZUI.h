@@ -47,6 +47,9 @@
 @end
 
 FOUNDATION_EXPORT void FZInstallUI(UIViewController *controller);
+FOUNDATION_EXPORT WPGroupHeaderView *FZGroupHeaderForController(UIViewController *controller);
+FOUNDATION_EXPORT BOOL FZUsesNativeHeader(void);
+FOUNDATION_EXPORT void FZSetUsesNativeHeader(BOOL value);
 FOUNDATION_EXPORT void FZRefreshUI(UIViewController *controller);
 FOUNDATION_EXPORT void FZInstallSettingsEntry(UIViewController *controller);
 FOUNDATION_EXPORT UIViewController *FZTopViewController(void);

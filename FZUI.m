@@ -16,16 +16,44 @@ static void FZPresentTextEditor(UIViewController *owner, NSString *title, NSStri
 @end
 
 @implementation WPMaterialSelectVC
-- (void)viewDidLoad { [super viewDidLoad]; self.title= self.isForGlobalBadge ? @"选择全局角标素材" : @"选择悬浮图标素材"; self.files=[@[ @"", @"[恢复默认/清除素材]" ] arrayByAddingObjectsFromArray:FZMaterials()]; self.navigationItem.leftBarButtonItem=[[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancel)]; }
+- (void)viewDidLoad { [super viewDidLoad]; self.title= self.isForGlobalBadge ? @"选择全局角标素材" : @"选择悬浮图标素材"; self.files=[@[ @"" ] arrayByAddingObjectsFromArray:FZMaterials()]; self.navigationItem.leftBarButtonItem=[[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancel)]; }
 - (NSInteger)tableView:(UITableView*)t numberOfRowsInSection:(NSInteger)s{return self.files.count;}
 - (UITableViewCell*)tableView:(UITableView*)t cellForRowAtIndexPath:(NSIndexPath*)p{UITableViewCell*c=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:nil];NSString*f=self.files[p.row];c.textLabel.text=f.length?f.lastPathComponent:@"[恢复默认/清除素材]";if(f.length)c.imageView.image=[UIImage imageWithContentsOfFile:f];c.accessoryType=[FZMaterial(self.isForGlobalBadge?@"WPPulse_GlobalBadgeMaterial":@"WPPulse_CustomDockMaterial") isEqual:f]?UITableViewCellAccessoryCheckmark:UITableViewCellAccessoryNone;return c;}
 - (void)tableView:(UITableView*)t didSelectRowAtIndexPath:(NSIndexPath*)p{NSString*k=self.isForGlobalBadge?@"WPPulse_GlobalBadgeMaterial":@"WPPulse_CustomDockMaterial";FZSetMaterial(k,self.files[p.row].length?self.files[p.row]:nil);[self.navigationController popViewControllerAnimated:YES];}
 - (void)cancel{[self.navigationController popViewControllerAnimated:YES];}
 @end
 
+static id FZSafeObjectCall(id target, SEL selector) {
+    if(!target || ![target respondsToSelector:selector])return nil;
+    Method m=object_isClass(target)?class_getClassMethod((Class)target,selector):class_getInstanceMethod(object_getClass(target),selector);
+    if(!m || method_getNumberOfArguments(m)!=2 || method_getTypeEncoding(m)[0]!='@')return nil;
+    return ((id(*)(id,SEL))objc_msgSend)(target,selector);
+}
+static NSString *FZContactName(id contact, NSString *fallback) {
+    if([contact isKindOfClass:NSDictionary.class])for(NSString*k in @[@"remark",@"name",@"nickName",@"m_nsRemark",@"m_nsNickName"]){id v=contact[k];if([v isKindOfClass:NSString.class]&&[v length])return v;}
+    for(NSString*k in @[@"m_nsRemark",@"m_nsNickName",@"remark",@"nickName"]){@try{id v=[contact valueForKey:k];if([v isKindOfClass:NSString.class]&&[v length])return v;}@catch(__unused NSException*e){}}
+    return fallback;
+}
+
 @implementation WPCustomGroupSelectVC { UISearchBar *_search; UISegmentedControl *_segment; UITableView *_table; NSMutableArray *_all; }
-- (void)viewDidLoad{[super viewDidLoad];self.title=@"选择好友/群聊";self.view.backgroundColor=UIColor.systemBackgroundColor;self.selectedWxids=[NSMutableSet set];_search=[[UISearchBar alloc]init];_search.placeholder=@"搜索名称或微信号";_search.delegate=(id)self;_segment=[[UISegmentedControl alloc]initWithItems:@[@"好友",@"群聊"]];_segment.selectedSegmentIndex=0;[_segment addTarget:self action:@selector(segmentChanged:) forControlEvents:UIControlEventValueChanged];_table=[[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStyleInsetGrouped];_table.dataSource=(id)self;_table.delegate=(id)self;UIStackView*head=[[UIStackView alloc]initWithArrangedSubviews:@[_search,_segment]];head.axis=UILayoutConstraintAxisVertical;head.spacing=4;head.frame=CGRectMake(0,0,self.view.bounds.size.width,104);head.autoresizingMask=UIViewAutoresizingFlexibleWidth;[self.view addSubview:head];_table.frame=CGRectMake(0,104,self.view.bounds.size.width,self.view.bounds.size.height-104);_table.autoresizingMask=UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;[self.view addSubview:_table];self.navigationItem.leftBarButtonItem=[[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancel)];self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]initWithTitle:@"保存" style:UIBarButtonItemStyleDone target:self action:@selector(save)];[self loadContacts];}
-- (void)loadContacts{_all=[NSMutableArray array];NSArray*friends=self.privateContactsList;NSArray*groups=self.groupContactsList;Class center=objc_getClass("MMServiceCenter");if(center){id(*get0)(id,SEL)=(id(*)(id,SEL))objc_msgSend;id(*get1)(id,SEL,id)=(id(*)(id,SEL,id))objc_msgSend;id service=get0(center,@selector(defaultCenter));id mgr=service?get1(service,@selector(getService:),objc_getClass("CContactMgr")):nil;if(mgr){id(*arr)(id,SEL)=(id(*)(id,SEL))objc_msgSend;friends=friends?:arr(mgr,@selector(getContactList));groups=groups?:arr(mgr,@selector(getGroupContactList));}}for(id o in friends){NSString*u=FZSessionUser(o);if(u.length)[_all addObject:@{@"username":u, @"name":u}];}for(id o in groups){NSString*u=FZSessionUser(o);if(u.length)[_all addObject:@{@"username":u, @"name":u}];}if(!friends&&!groups){for(NSDictionary*d in self.privateContactsList) [_all addObject:d];for(NSDictionary*d in self.groupContactsList)[_all addObject:d];}[self filterData];}
+- (void)viewDidLoad{[super viewDidLoad];self.title=@"选择好友/群聊";self.view.backgroundColor=UIColor.systemBackgroundColor;if(!self.selectedWxids)self.selectedWxids=[NSMutableSet setWithArray:self.typeId?FZMembers(self.typeId):@[]];_search=[[UISearchBar alloc]init];_search.placeholder=@"搜索名称或微信号";_search.delegate=(id)self;_segment=[[UISegmentedControl alloc]initWithItems:@[@"好友",@"群聊"]];_segment.selectedSegmentIndex=0;[_segment addTarget:self action:@selector(segmentChanged:) forControlEvents:UIControlEventValueChanged];_table=[[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStyleInsetGrouped];_table.dataSource=(id)self;_table.delegate=(id)self;UIStackView*head=[[UIStackView alloc]initWithArrangedSubviews:@[_search,_segment]];head.axis=UILayoutConstraintAxisVertical;head.spacing=4;head.frame=CGRectMake(0,0,self.view.bounds.size.width,104);head.autoresizingMask=UIViewAutoresizingFlexibleWidth;[self.view addSubview:head];_table.frame=CGRectMake(0,104,self.view.bounds.size.width,self.view.bounds.size.height-104);_table.autoresizingMask=UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;[self.view addSubview:_table];self.navigationItem.leftBarButtonItem=[[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancel)];self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]initWithTitle:@"保存" style:UIBarButtonItemStyleDone target:self action:@selector(save)];[self loadContacts];}
+- (void)loadContacts{
+    _all=[NSMutableArray array];id friends=self.privateContactsList,groups=self.groupContactsList;
+    Class center=objc_getClass("MMServiceCenter"),contactClass=objc_getClass("CContactMgr");
+    if(center&&contactClass){id service=FZSafeObjectCall(center,@selector(defaultCenter));
+        if(service&&[service respondsToSelector:@selector(getService:)]){
+            id mgr=((id(*)(id,SEL,Class))objc_msgSend)(service,@selector(getService:),contactClass);
+            if(!friends)friends=FZSafeObjectCall(mgr,@selector(getContactList));
+            if(!groups)groups=FZSafeObjectCall(mgr,@selector(getGroupContactList));
+        }
+    }
+    NSMutableSet*seen=[NSMutableSet set];
+    for(id list in @[friends?:@[],groups?:@[]]){
+        if(![list isKindOfClass:NSArray.class])continue;
+        for(id contact in list){NSString*u=FZSessionUser(contact);if(!u.length||[seen containsObject:u])continue;[seen addObject:u];[_all addObject:@{@"username":u,@"name":FZContactName(contact,u)}];}
+    }
+    [self filterData];
+}
 - (void)segmentChanged:(UISegmentedControl*)s{self.currentSegmentIndex=s.selectedSegmentIndex;[self filterData];}
 - (void)textFieldDidChange:(id)x{[self filterData];}
 - (void)searchBar:(UISearchBar*)s textDidChange:(NSString*)text{self.searchText=text;[self filterData];}
@@ -56,7 +84,7 @@ static void FZPresentTextEditor(UIViewController *owner, NSString *title, NSStri
 - (NSInteger)tableView:(UITableView*)t numberOfRowsInSection:(NSInteger)s{return FZAllGroups().count;}
 - (UITableViewCell*)tableView:(UITableView*)t cellForRowAtIndexPath:(NSIndexPath*)p{NSDictionary*g=FZAllGroups()[p.row];UITableViewCell*c=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:nil];c.textLabel.text=g[@"name"];c.detailTextLabel.text=[g[@"visible"]boolValue]?@"显示":@"隐藏";return c;}
 - (CGFloat)tableView:(UITableView*)t heightForRowAtIndexPath:(NSIndexPath*)p{return 52;}
-- (void)tableView:(UITableView*)t didSelectRowAtIndexPath:(NSIndexPath*)p{NSDictionary*g=FZAllGroups()[p.row];if([g[@"isCustom"]boolValue]){WPCustomGroupSelectVC*v=[WPCustomGroupSelectVC new];v.typeId=g[@"name"];v.selectedWxids=[NSMutableSet setWithArray:FZMembers(g[@"name"])];UIViewController*o=t.window.rootViewController;while(o.presentedViewController)o=o.presentedViewController;[o.navigationController pushViewController:v animated:YES];}else{FZSetGroupVisible(g[@"name"],[g[@"visible"]boolValue]);[t reloadData];}}
+- (void)tableView:(UITableView*)t didSelectRowAtIndexPath:(NSIndexPath*)p{NSDictionary*g=FZAllGroups()[p.row];if([g[@"isCustom"]boolValue]){WPCustomGroupSelectVC*v=[WPCustomGroupSelectVC new];v.typeId=g[@"name"];v.selectedWxids=[NSMutableSet setWithArray:FZMembers(g[@"name"])];UIViewController*o=t.window.rootViewController;while(o.presentedViewController)o=o.presentedViewController;[o.navigationController pushViewController:v animated:YES];}else{FZSetGroupVisible(g[@"name"],![g[@"visible"]boolValue]);[t reloadData];}}
 - (BOOL)tableView:(UITableView*)t canMoveRowAtIndexPath:(NSIndexPath*)p{return YES;}
 - (void)tableView:(UITableView*)t moveRowAtIndexPath:(NSIndexPath*)from toIndexPath:(NSIndexPath*)to{NSMutableArray*a=[FZAllGroups() mutableCopy];NSDictionary*g=a[from.row];[a removeObjectAtIndex:from.row];[a insertObject:g atIndex:to.row];FZSaveGroups(a);[t reloadData];}
 - (UISwipeActionsConfiguration *)tableView:(UITableView *)t trailingSwipeActionsConfigurationForRowAtIndexPath:(NSIndexPath *)p{NSDictionary*g=FZAllGroups()[p.row];if(![g[@"isCustom"]boolValue])return nil;id del=FZMakeSwipeAction(0,@"删除",^(__unused id a,__unused id v,void(^done)(BOOL)){FZDeleteGroup(g[@"name"]);[t reloadData];done(YES);});return del?[UISwipeActionsConfiguration configurationWithActions:@[del]]:nil;}
@@ -74,8 +102,41 @@ static void FZPresentTextEditor(UIViewController *owner, NSString *title, NSStri
 - (void)done{[self.navigationController popViewControllerAnimated:YES];}
 @end
 
-void FZRefreshUI(UIViewController*c){if(!c)return;for(UIView*v in c.view.subviews)if([v isKindOfClass:WPGroupHeaderView.class]){((WPGroupHeaderView*)v).selectedGroup=FZCurrentGroup();[((WPGroupHeaderView*)v)reloadGroups];}for(UIView*v in c.view.subviews)if([v isKindOfClass:WPSideDockView.class]){((WPSideDockView*)v).selectedGroup=FZCurrentGroup();[((WPSideDockView*)v)reloadGroups];}}
-void FZInstallUI(UIViewController*c){if(!c)return;UIView*existing=nil;for(UIView*v in c.view.subviews)if([v isKindOfClass:WPGroupHeaderView.class])existing=v;if(!existing&&!FZBool(@"WPPulse_HideTopBar",NO)){CGFloat margin=FZFloat(@"WPPulse_TopMargin",0);WPGroupHeaderView*h=[[WPGroupHeaderView alloc]initWithFrame:CGRectMake(12,margin,c.view.bounds.size.width-24,42)];h.owner=c;h.selectedGroup=FZCurrentGroup();[c.view addSubview:h];[h reloadGroups];objc_setAssociatedObject(c,@"FZHeader",h,OBJC_ASSOCIATION_RETAIN_NONATOMIC);UIPanGestureRecognizer*p=[[UIPanGestureRecognizer alloc]initWithTarget:c action:NSSelectorFromString(@"fz_handlePan:")];[c.view addGestureRecognizer:p];UILongPressGestureRecognizer*l=[[UILongPressGestureRecognizer alloc]initWithTarget:c action:NSSelectorFromString(@"fz_handleLongPress:")];[c.view addGestureRecognizer:l];}if(!FZBool(@"WPPulse_HideSideDock",YES)){WPSideDockView*d=(WPSideDockView*)objc_getAssociatedObject(c,@"FZDock");if(!d){CGFloat y=FZFloat(@"WPPulse_DockPositionY",220);d=[[WPSideDockView alloc]initWithFrame:CGRectMake(0,y,72,MIN(350,c.view.bounds.size.height-260))];d.owner=c;d.selectedGroup=FZCurrentGroup();[c.view addSubview:d];UIPanGestureRecognizer*dp=[[UIPanGestureRecognizer alloc]initWithTarget:d action:@selector(handleDockPan:)];[d addGestureRecognizer:dp];UILongPressGestureRecognizer*dl=[[UILongPressGestureRecognizer alloc]initWithTarget:d action:@selector(handleDockLong:)];[d addGestureRecognizer:dl];[d reloadGroups];objc_setAssociatedObject(c,@"FZDock",d,OBJC_ASSOCIATION_RETAIN_NONATOMIC);}}}
+static BOOL gUsesNativeHeader;
+BOOL FZUsesNativeHeader(void){return gUsesNativeHeader;}
+void FZSetUsesNativeHeader(BOOL value){gUsesNativeHeader=value;}
+WPGroupHeaderView *FZGroupHeaderForController(UIViewController*c){
+    if(!c)return nil;
+    WPGroupHeaderView*h=(WPGroupHeaderView*)objc_getAssociatedObject(c,@"FZHeader");
+    if([h isKindOfClass:WPGroupHeaderView.class])return h;
+    for(UIView*v in c.view.subviews)if([v isKindOfClass:WPGroupHeaderView.class])return (WPGroupHeaderView*)v;
+    return nil;
+}
+static void FZRemoveViewForKey(UIViewController*c,const void *key){UIView*v=(__bridge UIView*)objc_getAssociatedObject(c,key);if(v){[v removeFromSuperview];objc_setAssociatedObject(c,key,nil,OBJC_ASSOCIATION_RETAIN_NONATOMIC);}}
+static void FZInstallGesturesIfNeeded(UIViewController*c){
+    if(!c||objc_getAssociatedObject(c,@"FZGestures"))return;
+    UIPanGestureRecognizer*p=[[UIPanGestureRecognizer alloc]initWithTarget:c action:NSSelectorFromString(@"fz_handlePan:")];[c.view addGestureRecognizer:p];
+    UILongPressGestureRecognizer*l=[[UILongPressGestureRecognizer alloc]initWithTarget:c action:NSSelectorFromString(@"fz_handleLongPress:")];[c.view addGestureRecognizer:l];
+    objc_setAssociatedObject(c,@"FZGestures",@YES,OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+void FZRefreshUI(UIViewController*c){
+    if(!c)return;
+    if(FZUsesNativeHeader()){FZInstallGesturesIfNeeded(c);}
+    FZInstallUI(c);
+    WPGroupHeaderView*h=FZGroupHeaderForController(c);if(h){h.selectedGroup=FZCurrentGroup();[h reloadGroups];}
+    WPSideDockView*d=(WPSideDockView*)objc_getAssociatedObject(c,@"FZDock");d.selectedGroup=FZCurrentGroup();[d reloadGroups];
+}
+void FZInstallUI(UIViewController*c){
+    if(!c)return;
+    BOOL hideTop=FZBool(@"WPPulse_HideTopBar",NO), hideDock=FZBool(@"WPPulse_HideSideDock",NO);
+    if(hideTop)FZRemoveViewForKey(c,@"FZHeader");
+    else if(!FZUsesNativeHeader()&&!FZGroupHeaderForController(c)){
+        CGFloat margin=FZFloat(@"WPPulse_TopMargin",0);WPGroupHeaderView*h=[[WPGroupHeaderView alloc]initWithFrame:CGRectMake(12,margin,c.view.bounds.size.width-24,42)];h.owner=c;h.selectedGroup=FZCurrentGroup();[c.view addSubview:h];[h reloadGroups];objc_setAssociatedObject(c,@"FZHeader",h,OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+        UIPanGestureRecognizer*p=[[UIPanGestureRecognizer alloc]initWithTarget:c action:NSSelectorFromString(@"fz_handlePan:")];[c.view addGestureRecognizer:p];UILongPressGestureRecognizer*l=[[UILongPressGestureRecognizer alloc]initWithTarget:c action:NSSelectorFromString(@"fz_handleLongPress:")];[c.view addGestureRecognizer:l];
+    }
+    if(hideDock)FZRemoveViewForKey(c,@"FZDock");
+    else { WPSideDockView*d=(WPSideDockView*)objc_getAssociatedObject(c,@"FZDock"); if(!d){CGFloat y=FZFloat(@"WPPulse_DockPositionY",220);d=[[WPSideDockView alloc]initWithFrame:CGRectMake(0,y,72,MIN(350,MAX(80,c.view.bounds.size.height-260)))];d.owner=c;d.selectedGroup=FZCurrentGroup();[c.view addSubview:d];UIPanGestureRecognizer*dp=[[UIPanGestureRecognizer alloc]initWithTarget:d action:@selector(handleDockPan:)];[d addGestureRecognizer:dp];UILongPressGestureRecognizer*dl=[[UILongPressGestureRecognizer alloc]initWithTarget:d action:@selector(handleDockLong:)];[d addGestureRecognizer:dl];[d reloadGroups];objc_setAssociatedObject(c,@"FZDock",d,OBJC_ASSOCIATION_RETAIN_NONATOMIC);} }
+}
 static void FZOpenSettings(id self,SEL _cmd);
 void FZInstallSettingsEntry(UIViewController *controller){
     if(!controller)return;

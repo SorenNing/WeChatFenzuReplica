@@ -33,4 +33,6 @@ FOUNDATION_EXPORT NSArray<NSString *> *FZMaterials(void);
 FOUNDATION_EXPORT void FZResetAppearance(void);
 FOUNDATION_EXPORT void FZResetGroups(void);
 FOUNDATION_EXPORT void FZSetRuntimeSessions(NSArray *sessions);
+FOUNDATION_EXPORT void FZAddRuntimeSessions(NSArray *sessions);
+FOUNDATION_EXPORT void FZClearRuntimeSessions(void);
 FOUNDATION_EXPORT NSUInteger FZGroupUnreadCount(NSString *name);
