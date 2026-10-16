@@ -2,7 +2,7 @@ name: build-fenzu-full-replica
 on:
   workflow_dispatch:
   push:
-    branches: [FenzuFullReplica]
+    branches: [main, FenzuFullReplica]
 permissions:
   contents: read
 jobs:
