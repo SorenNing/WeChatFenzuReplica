@@ -56,11 +56,6 @@ static BOOL FZHookVoid2Objects(Class cls, SEL sel, IMP replacement) {
     if(!method || !types || method_getNumberOfArguments(method)!=4 || types[0]!='v') return NO;
     return FZHook(cls,sel,replacement);
 }
-static BOOL FZHookVoid3Objects(Class cls, SEL sel, IMP replacement) {
-    Method method=cls?class_getInstanceMethod(cls,sel):NULL; const char *types=method?method_getTypeEncoding(method):NULL;
-    if(!method || !types || method_getNumberOfArguments(method)!=5 || types[0]!='v') return NO;
-    return FZHook(cls,sel,replacement);
-}
 static id FZCallObject(id self, SEL sel, id arg) {
     IMP imp=FZOriginalFor(self,sel); return imp ? ((id(*)(id,SEL,id))imp)(self,sel,arg) : nil;
 }
@@ -166,24 +161,6 @@ static id FZHomeCell(id self, SEL cmd, id path) {
     return FZCallObject(self,@selector(logicGetCellDataAtIndexPath:),mapped);
 }
 static void FZHomeReload(id self, SEL cmd) { FZCallVoid(self,cmd); NSMutableDictionary*s=FZState(self);s[@"valid"]=@NO;FZRefreshAll(); }
-static id FZLogicInfo(id self, SEL cmd, id path) {
-    NSInteger row=[path respondsToSelector:@selector(row)]?[path row]:0, real=FZMapRow(self,row); if(real==NSIntegerMax)return nil;
-    NSIndexPath *mapped=[NSIndexPath indexPathForRow:real inSection:[path respondsToSelector:@selector(section)]?[path section]:0];
-    return FZCallObject(self,@selector(getSessionInfoAtIndexPath:),mapped);
-}
-static id FZLogicBase(id self, SEL cmd, id path) {
-    NSInteger row=[path respondsToSelector:@selector(row)]?[path row]:0, real=FZMapRow(self,row); if(real==NSIntegerMax)return nil;
-    NSIndexPath *mapped=[NSIndexPath indexPathForRow:real inSection:[path respondsToSelector:@selector(section)]?[path section]:0];
-    return FZCallObject(self,@selector(getSessionBaseInfoAtIndexPath:),mapped);
-}
-static id FZLogicCell(id self, SEL cmd, id path) {
-    NSInteger row=[path respondsToSelector:@selector(row)]?[path row]:0, real=FZMapRow(self,row); if(real==NSIntegerMax)return nil;
-    NSIndexPath *mapped=[NSIndexPath indexPathForRow:real inSection:[path respondsToSelector:@selector(section)]?[path section]:0];
-    return FZCallObject(self,@selector(getCellDataAtIndexPath:),mapped);
-}
-static NSInteger FZLogicReverse(id self, SEL cmd, id user, NSInteger section) {
-    FZSnapshot(self); NSArray *names=FZState(self)[@"names"]; NSUInteger i=[names indexOfObject:user]; return i==NSNotFound ? NSIntegerMax : (NSInteger)i;
-}
 
 static BOOL FZIsTopSelector(SEL sel) { return sel==@selector(visibleTopSessionCount) || sel==@selector(getTopSessionAtIndex:); }
 static SEL FZManagerCountSelector(SEL itemSel) {
@@ -206,7 +183,6 @@ static id FZManagerItem(id self, SEL cmd, NSInteger index) {
     if(gRawReadDepth){IMP imp=FZOriginalFor(self,cmd);return imp?((id(*)(id,SEL,NSInteger))imp)(self,cmd,index):nil;}
     NSArray *a=FZManagerArray(self,FZIsTopSelector(cmd),cmd); return index>=0&&index<(NSInteger)a.count?a[index]:nil;
 }
-static void FZManagerReload(id self, SEL cmd) { FZCallVoid(self,cmd); for(id logic in gStates){ NSMutableDictionary*s=[gStates objectForKey:logic];s[@"valid"]=@NO; } FZRefreshAll(); }
 
 static void FZApplyConfigChanged(__unused NSNotification *note) { for(id logic in gStates){NSMutableDictionary*s=[gStates objectForKey:logic];s[@"group"]=FZCurrentGroup();s[@"valid"]=@NO;} FZRefreshAll(); }
 static void FZAppear(id self, SEL cmd, BOOL animated) { IMP imp=FZOriginalFor(self,cmd); if(imp)((void(*)(id,SEL,BOOL))imp)(self,cmd,animated); FZInstallUI((UIViewController *)self); }

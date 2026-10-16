@@ -112,7 +112,7 @@ WPGroupHeaderView *FZGroupHeaderForController(UIViewController*c){
     for(UIView*v in c.view.subviews)if([v isKindOfClass:WPGroupHeaderView.class])return (WPGroupHeaderView*)v;
     return nil;
 }
-static void FZRemoveViewForKey(UIViewController*c,const void *key){UIView*v=(__bridge UIView*)objc_getAssociatedObject(c,key);if(v){[v removeFromSuperview];objc_setAssociatedObject(c,key,nil,OBJC_ASSOCIATION_RETAIN_NONATOMIC);}}
+static void FZRemoveViewForKey(UIViewController*c,const void *key){UIView*v=(UIView*)objc_getAssociatedObject(c,key);if(v){[v removeFromSuperview];objc_setAssociatedObject(c,key,nil,OBJC_ASSOCIATION_RETAIN_NONATOMIC);}}
 static void FZInstallGesturesIfNeeded(UIViewController*c){
     if(!c||objc_getAssociatedObject(c,@"FZGestures"))return;
     UIPanGestureRecognizer*p=[[UIPanGestureRecognizer alloc]initWithTarget:c action:NSSelectorFromString(@"fz_handlePan:")];[c.view addGestureRecognizer:p];
